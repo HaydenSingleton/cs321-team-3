@@ -1,8 +1,7 @@
 <template>
   <div class="tutorial">
-    <span>
-      <p style="display: inline">Tutorial about how to play</p>
-      <button style="text-align: right">x</button>
+    <span style="display: inline-flex">
+      <p>{{ greeting }}</p>
     </span>
     <div>{{ image }}</div>
   </div>
@@ -10,8 +9,9 @@
 
 <script>
 export default {
-  setup() {
-    return { image: "<image>" };
+  props: ["msg"],
+  setup(props) {
+    return { image: "<image>", greeting: props.msg };
   },
 };
 </script>

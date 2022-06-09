@@ -5,5 +5,6 @@
 <style>
 .board {
   border: 1px solid black;
+  padding: 20em;
 }
 </style>

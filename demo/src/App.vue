@@ -1,22 +1,12 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <h1>Demo App</h1>
-  <TutorialMenu />
-  <GameBoard />
+  <nav>
+    <router-link to="/game">Play</router-link> |
+    <router-link to="/about">Learn</router-link>
+  </nav>
+  <router-view />
 </template>
 
-<script>
-import GameBoard from "./components/GameBoard.vue";
-import TutorialMenu from "./components/TutorialMenu.vue";
-
-export default {
-  name: "App",
-  components: {
-    GameBoard,
-    TutorialMenu,
-  },
-};
-</script>
+<script setup></script>
 
 <style>
 #app {
@@ -25,6 +15,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
