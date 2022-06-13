@@ -1,5 +1,7 @@
 <template>
-  <div class="board">Board</div>
+  <div class="container">
+    <p>Board</p>
+  </div>
 </template>
 
 <style>

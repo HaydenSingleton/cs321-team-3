@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="section">
     <Tutorial msg="Learn to play the Inscryption Puzzle!" />
   </div>
 </template>
