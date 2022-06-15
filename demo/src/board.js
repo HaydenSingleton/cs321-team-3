@@ -16,7 +16,7 @@ class Board{
         this.boardID = preMadeBoard.boardID;
     }
     playPhase(){
-        Board beforePlay = this;
+        beforePlay = this;
         board[0].interaction();
         board[1].interaction();
         board[2].interaction();
