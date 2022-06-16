@@ -1,21 +1,26 @@
 <template>
   <div class="container">
-    <template v-for="lane in lanes" :key="lane.id">
-      <li>{{ lane }}</li>
-    </template>
+    <p>Game</p>
+    <div class="columns">
+      <div class="button">
+        <p>{{ score }}/5</p>
+      </div>
+      <LaneItem />
+      <LaneItem />
+      <LaneItem />
+      <LaneItem />
+    </div>
   </div>
 </template>
 
 <script>
-import { Board } from "@/board.js";
-
-const board = Board.def_constructor();
-const lanes = board.lanes;
+import { LaneItem } from "@/components/LaneItem.vue";
 
 export default {
   data() {
-    return lanes;
+    return { score };
   },
+  components: { LaneItem },
 };
 </script>
 
