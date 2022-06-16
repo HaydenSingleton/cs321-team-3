@@ -1,8 +1,23 @@
 <template>
   <div class="container">
-    <p>Board</p>
+    <template v-for="lane in lanes" :key="lane.id">
+      <li>{{ lane }}</li>
+    </template>
   </div>
 </template>
+
+<script>
+import { Board } from "@/board.js";
+
+const board = Board.def_constructor();
+const lanes = board.lanes;
+
+export default {
+  data() {
+    return lanes;
+  },
+};
+</script>
 
 <style>
 .board {
