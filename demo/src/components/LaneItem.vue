@@ -1,15 +1,6 @@
 <template>
-  <div>
-    <div class="block">This text is within a <strong>block</strong>.</div>
-    <div class="block">
-      This text is within a <strong>second block</strong>. Lorem ipsum dolor sit
-      amet, consectetur adipiscing elit. Aenean efficitur sit amet massa
-      fringilla egestas. Nullam condimentum luctus turpis.
-    </div>
-    <div class="block">
-      This text is within a <strong>third block</strong>. This block has no
-      margin at the bottom.
-    </div>
+  <div id="lane">
+    <div class="button">LANE</div>
   </div>
 </template>
 
@@ -22,4 +13,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.button {
+  margin: 0px 25px;
+  padding: 0px 100px;
+  min-height: 600px;
+  height: auto;
+}
+
+#lane {
+  min-width: 200px;
+}
+</style>
