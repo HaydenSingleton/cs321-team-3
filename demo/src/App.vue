@@ -1,12 +1,18 @@
 <template>
-  <nav>
-    <router-link to="/game">Play</router-link> |
-    <router-link to="/about">Learn</router-link>
-  </nav>
-  <router-view />
+  <div>
+    <nav>
+      <router-link to="/game">Play</router-link> |
+      <router-link to="/about">Learn</router-link>
+    </nav>
+    <router-view />
+  </div>
 </template>
 
-<script setup></script>
+<script>
+export default {
+  name: "App",
+};
+</script>
 
 <style>
 #app {
