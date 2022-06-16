@@ -1,13 +1,18 @@
 class Tile {
+  empty;
+  atk;
+  health;
+  sigil;
+
   def_constructor() {
     this.empty = true;
-    this.atk = 0;
+    this.attack = 0;
     this.health = 0;
     this.sigil = "";
   }
-  constructor(empty, atk, health, sigil) {
+  constructor(empty, attack, health, sigil) {
     this.empty = empty;
-    this.atk = atk;
+    this.attack = attack;
     this.health = health;
     this.sigil = sigil;
   }
