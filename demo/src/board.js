@@ -41,7 +41,7 @@ const board = {
           }
       }
     }
-    for (let j = 0; j <= 1; j++) {
+    for (let j = 0; j <= 3; j++) {
       switch (this.lanes[j].lane[2].sigil) {
         case "Trifurcated Strike":
           if (j - 1 >= 0) {
@@ -54,20 +54,26 @@ const board = {
             this.lanes[j].lane[2],
             this.lanes[j].lane[1]
           );
-          this.directDamageTaken += this.lanes[j].hit(
-            this.lanes[j].lane[2],
-            this.lanes[j + 1].lane[1]
-          );
+          if (j + 1 <= 3) {
+            this.directDamageTaken += this.lanes[j].hit(
+              this.lanes[j].lane[2],
+              this.lanes[j + 1].lane[1]
+            );
+          }
           break;
         case "Bifurcated Strike":
-          this.directDamageTaken += this.lanes[j].hit(
-            this.lanes[j].lane[2],
-            this.lane[j - 1].lane[1]
-          );
-          this.directDamageTaken += this.lanes[j].hit(
-            this.lanes[j].lane[2],
-            this.lanes[j + 1].lane[1]
-          );
+          if (j - 1 >= 0) {
+            this.directDamageTaken += this.lanes[j].hit(
+              this.lanes[j].lane[2],
+              this.lane[j - 1].lane[1]
+            );
+          }
+          if (j + 1 <= 3) {
+            this.directDamageTaken += this.lanes[j].hit(
+              this.lanes[j].lane[2],
+              this.lanes[j + 1].lane[1]
+            );
+          }
           break;
         default:
           this.directDamageTaken += this.lanes[j].hit(
