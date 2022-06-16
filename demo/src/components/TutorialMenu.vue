@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  props: ["msg"],
+  props: { msg: { type: String, default: "" } },
   setup(props) {
     return { image: "<image>", greeting: props.msg };
   },
