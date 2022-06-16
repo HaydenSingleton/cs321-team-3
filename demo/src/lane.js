@@ -37,6 +37,9 @@ class Lane {
       this.hit(this.lane[1], this.lane[2]); // enemy attacks only if it survived player attack.
     }
   }
-  hit(tile1, tile2) {}
+  hit(tile1, tile2) {
+      //if direct damage, return atk.
+      //else return 0
+  }
   onHit(tile1, tile2) {}
 }
