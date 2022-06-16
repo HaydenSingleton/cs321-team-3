@@ -1,6 +1,6 @@
 class Tile {
   empty;
-  atk;
+  attack;
   health;
   sigil;
 
