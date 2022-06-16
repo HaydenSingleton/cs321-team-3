@@ -38,8 +38,8 @@ class Lane {
     }
   }
   hit(tile1, tile2) {
-      //if direct damage, return atk.
-      //else return 0
+    //if direct damage, return atk.
+    //else return 0
   }
   onHit(tile1, tile2) {}
 }
