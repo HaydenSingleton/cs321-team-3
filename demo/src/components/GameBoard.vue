@@ -2,23 +2,25 @@
   <div class="container">
     <p>Game</p>
     <div class="columns">
-      <div class="button">
-        <p>{{ score }}/5</p>
+      <div>
+        <p id="score">{{ score }}/5</p>
       </div>
-      <LaneItem />
-      <LaneItem />
-      <LaneItem />
-      <LaneItem />
+      <LaneItem class="column">1</LaneItem>
+      <LaneItem class="column">2</LaneItem>
+      <LaneItem class="column">3</LaneItem>
+      <LaneItem class="column">4</LaneItem>
+      <div>Info</div>
     </div>
   </div>
 </template>
 
 <script>
-import { LaneItem } from "@/components/LaneItem.vue";
+import LaneItem from "@/components/LaneItem.vue";
 
 export default {
+  name: "GameBoard",
   data() {
-    return { score };
+    return { score: 0 };
   },
   components: { LaneItem },
 };
