@@ -1,3 +1,4 @@
+import { Tile } from "@/tile.js";
 class Lane {
   def_constructor() {
     var tile1 = Tile.def_constructor();
@@ -10,30 +11,30 @@ class Lane {
     const lane = [tile1, tile2, tile3, tile4];
   }
   moveUp(tile) {
-    curIndex = lane.indexOf(tile);
+    var curIndex = this.lane.indexOf(tile);
     if (curIndex != 0) {
-      if (lane[curIndex - 1].empty == true) {
-        lane[curIndex - 1] = tile;
-        lane[curIndex] = Tile.def_constructor();
+      if (this.lane[curIndex - 1].empty == true) {
+        this.lane[curIndex - 1] = tile;
+        this.lane[curIndex] = Tile.def_constructor();
       }
     }
   }
   moveDown(tile) {
-    curIndex = lane.indexOf(tile);
+    var curIndex = this.lane.indexOf(tile);
     if (curIndex != 3) {
-      if (lane[curIndex + 1].empty == true) {
-        lane[curIndex + 1] = tile;
-        lane[curIndex] = Tile.def_constructor();
+      if (this.lane[curIndex + 1].empty == true) {
+        this.lane[curIndex + 1] = tile;
+        this.lane[curIndex] = Tile.def_constructor();
       }
     }
   }
   interact() {
     //Active Zone
-    if (lane[2].empty == false) {
-      this.hit(lane[2], lane[1]); //player attacks first
+    if (this.lane[2].empty == false) {
+      this.hit(this.lane[2], this.lane[1]); //player attacks first
     }
-    if (lane[1].empty == false) {
-      this.hit(lane[1], lane[2]); // enemy attacks only if it survived player attack.
+    if (this.lane[1].empty == false) {
+      this.hit(this.lane[1], this.lane[2]); // enemy attacks only if it survived player attack.
     }
   }
   hit(tile1, tile2) {}
