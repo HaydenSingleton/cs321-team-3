@@ -40,7 +40,8 @@
     "extends": [
       "plugin:vue/recommended",
       "eslint:recommended",
-      "plugin:prettier/recommended"
+      "plugin:prettier/recommended",
+      "plugin:vue/vue3-essential"
     ],
     "parserOptions": {
       "parser": "@babel/eslint-parser"
@@ -54,8 +55,18 @@
         "env": {
           "jest": true
         }
+      },
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)",
+          "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        ],
+        "env": {
+          "jest": true
+        }
       }
-    ]
+    ],
+    "rules": {}
   },
   "browserslist": [
     "> 1%",
