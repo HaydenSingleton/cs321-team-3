@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
-import Tile from "@/tile.js";
+import { Tile } from "@/tile.js";
 
 export const Lane = {
   damage: 0,
   tiles: [Tile, Tile, Tile, Tile],
 
+  getTiles() {
+    return this.tiles;
+  },
   moveUp(tile) {
     var curIndex = this.tiles.indexOf(tile);
     if (curIndex != 0) {

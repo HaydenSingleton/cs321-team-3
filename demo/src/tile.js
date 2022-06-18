@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-const Tile = {
+export const Tile = {
   empty: true,
   attack: 0,
   health: 0,
