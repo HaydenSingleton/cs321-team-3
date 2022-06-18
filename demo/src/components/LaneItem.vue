@@ -1,6 +1,9 @@
 <template>
   <div id="lane">
     <div class="button">LANE</div>
+    <div class="column" @click="score = ++score % 6">
+      <p id="score" class="button">{{ score }}/5</p>
+    </div>
   </div>
 </template>
 
