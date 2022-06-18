@@ -6,7 +6,7 @@
       </div>
       <div class="level">
         <LaneItem
-          v-for="item in items"
+          v-for="item in lanes"
           :key="item.id"
           class="level-item"
         ></LaneItem>
@@ -16,14 +16,11 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from "vue";
+import { board } from "@/board.js";
 import LaneItem from "@/components/LaneItem.vue";
 
-export default {
-  name: "GameBoard",
-  components: { LaneItem },
-  data() {
-    return { score: 0, items: [1, 2, 3, 4] };
-  },
-};
+const score = ref(0);
+const lanes = board.lanes;
 </script>
