@@ -4,30 +4,72 @@
       <div class="tile is-ancestor is-vertical" style="margin-right: 25px">
         <div class="tile is-parent is-vertical">
           <article class="tile is-child box">
-            <p class="title is-vertical notification is-primary">
-              <button
-                class="button is-small is-vertical"
-                style="width: 60px; height: 30px"
-              >
-                ▲
-              </button>
-              a,s,h|1|
-              <button
-                class="button is-small is-vertical"
-                style="width: 60px; height: 30px"
-              >
-                ▼
-              </button>
+            <p
+              class="title is-vertical notification is-primary"
+              style="margin-bottom: 0px; text-align: center"
+            >
+              {{ atk1 }} {{ sigil1 }} {{ health1 }}
             </p>
+            <button
+              class="is-small is-vertical is-fullwidth is-outlined"
+              style="margin-left: 15px; margin-right: 15px; text-align: center"
+            >
+              ―――――――▼―――――――
+            </button>
           </article>
           <article class="tile is-child box">
-            <p class="title">a,s,h|2|</p>
+            <button
+              class="is-small is-vertical is-fullwidth is-outlined"
+              style="margin-left: 15px; margin-right: 15px; text-align: center"
+            >
+              ―――――――▲―――――――
+            </button>
+            <p
+              class="title is-vertical notification is-primary"
+              style="margin-bottom: 0px; text-align: center"
+            >
+              a# s h#
+            </p>
+            <button
+              class="is-small is-vertical is-fullwidth is-outlined"
+              style="margin-left: 15px; margin-right: 15px; text-align: center"
+            >
+              ―――――――▼―――――――
+            </button>
           </article>
           <article class="tile is-child box">
-            <p class="title">a,s,h|3|</p>
+            <button
+              class="is-small is-vertical is-fullwidth is-outlined"
+              style="margin-left: 15px; margin-right: 15px; text-align: center"
+            >
+              ―――――――▲―――――――
+            </button>
+            <p
+              class="title is-vertical notification is-primary"
+              style="margin-bottom: 0px; text-align: center"
+            >
+              a# s h#
+            </p>
+            <button
+              class="is-small is-vertical is-fullwidth is-outlined"
+              style="margin-left: 15px; margin-right: 15px; text-align: center"
+            >
+              ―――――――▼―――――――
+            </button>
           </article>
           <article class="tile is-child box">
-            <p class="title">a,s,h|4|</p>
+            <button
+              class="is-small is-vertical is-fullwidth is-outlined"
+              style="margin-left: 15px; margin-right: 15px; text-align: center"
+            >
+              ―――――――▲―――――――
+            </button>
+            <p
+              class="title is-vertical notification is-primary"
+              style="margin-bottom: 0px; text-align: center"
+            >
+              a# s h#
+            </p>
           </article>
         </div>
       </div>
