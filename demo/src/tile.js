@@ -10,6 +10,12 @@ const Tile = {
     this.health = 0;
     this.sigil = "";
   },
+  assign(e, a, h, s) {
+    this.empty = e;
+    this.atk = a;
+    this.health = h;
+    this.sigil = s;
+  },
   death() {
     if (this.health <= 0) {
       this.reset();
