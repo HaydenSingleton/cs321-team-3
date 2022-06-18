@@ -1,14 +1,15 @@
 <template>
   <div class="content">
     <div class="columns" style="margin-top: 25px">
-      <div class="column" @click="score = ++score % 6">
+      <div class="column">
         <p id="score" class="button">{{ score }}/5</p>
       </div>
-      <div class="level">
+      <div class="tile is-ancestor">
         <LaneItem
           v-for="item in lanes"
           :key="item.id"
-          class="level-item"
+          :tiles="item.getTiles()"
+          :position="item.id"
         ></LaneItem>
       </div>
       <div class="column">Info</div>
