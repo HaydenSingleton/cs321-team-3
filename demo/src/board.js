@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Lane } from "@/lane.js";
 
 const board = {

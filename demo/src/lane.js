@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Tile } from "@/tile.js";
 class Lane {
   damage;
@@ -39,12 +40,10 @@ class Lane {
       this.hit_enemy(this.lane[1], this.lane[2]); // enemy attacks only if it survived player attack.
     }
   }
-  hit_damage(Tile tile1, tile2) {
-    if () {
-
-    }
+  hit_damage(tile1, tile2) {
+    // if () {
+    // }
     //Sharp Quills
-
     //if direct damage, return atk.
     //else return 0
   }
