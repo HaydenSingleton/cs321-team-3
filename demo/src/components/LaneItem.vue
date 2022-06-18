@@ -1,100 +1,80 @@
 <template>
-  <div id="lane">
-    <div class="tile">
-      <div class="tile is-ancestor is-vertical" style="margin-right: 25px">
-        <div class="tile is-parent is-vertical">
-          <article class="tile is-child box">
-            <p
-              class="title is-vertical notification is-primary"
-              style="margin-bottom: 0px; text-align: center"
-            >
-              {{ atk1 }} {{ sigil1 }} {{ health1 }}
-            </p>
-            <button
-              class="is-small is-vertical is-fullwidth is-outlined"
-              style="margin-left: 15px; margin-right: 15px; text-align: center"
-            >
-              ―――――――▼―――――――
-            </button>
-          </article>
-          <article class="tile is-child box">
-            <button
-              class="is-small is-vertical is-fullwidth is-outlined"
-              style="margin-left: 15px; margin-right: 15px; text-align: center"
-            >
-              ―――――――▲―――――――
-            </button>
-            <p
-              class="title is-vertical notification is-primary"
-              style="margin-bottom: 0px; text-align: center"
-            >
-              a# s h#
-            </p>
-            <button
-              class="is-small is-vertical is-fullwidth is-outlined"
-              style="margin-left: 15px; margin-right: 15px; text-align: center"
-            >
-              ―――――――▼―――――――
-            </button>
-          </article>
-          <article class="tile is-child box">
-            <button
-              class="is-small is-vertical is-fullwidth is-outlined"
-              style="margin-left: 15px; margin-right: 15px; text-align: center"
-            >
-              ―――――――▲―――――――
-            </button>
-            <p
-              class="title is-vertical notification is-primary"
-              style="margin-bottom: 0px; text-align: center"
-            >
-              a# s h#
-            </p>
-            <button
-              class="is-small is-vertical is-fullwidth is-outlined"
-              style="margin-left: 15px; margin-right: 15px; text-align: center"
-            >
-              ―――――――▼―――――――
-            </button>
-          </article>
-          <article class="tile is-child box">
-            <button
-              class="is-small is-vertical is-fullwidth is-outlined"
-              style="margin-left: 15px; margin-right: 15px; text-align: center"
-            >
-              ―――――――▲―――――――
-            </button>
-            <p
-              class="title is-vertical notification is-primary"
-              style="margin-bottom: 0px; text-align: center"
-            >
-              a# s h#
-            </p>
-          </article>
+  <div id="lane" class="is-parent">
+    <!-- Tile 1 -->
+    <div class="tile box">
+      <div class="is-parent">
+        <a disabled class="tile button"></a>
+        <div class="tile box is-child media-container">
+          <p>Attack: {{ tiles[0].attack }}, Health: {{ tiles[0].attack }}</p>
+          <img class="media-left" src="../assets/empty_tile.png" />
+          <p>Sigil: {{ tiles[0].sigil }}</p>
         </div>
+        <button class="tile button">{{ down_arrow }}</button>
       </div>
     </div>
+    <!-- Tile 2 -->
+    <div class="tile box">
+      <div class="is-parent">
+        <button class="tile button">{{ up_arrow }}</button>
+        <div class="tile box is-child media-container">
+          <p>Attack: {{ tiles[1].attack }}, Health: {{ tiles[1].attack }}</p>
+          <img class="media-left" src="../assets/empty_tile.png" />
+          <p>Sigil: {{ tiles[1].sigil }}</p>
+        </div>
+        <button class="tile button">{{ down_arrow }}</button>
+      </div>
+    </div>
+    <!-- Tile 3 -->
+    <div class="tile box">
+      <div class="is-parent">
+        <button class="tile button">{{ up_arrow }}</button>
+        <div class="tile box is-child media-container">
+          <p>Attack: {{ tiles[1].attack }}, Health: {{ tiles[1].attack }}</p>
+          <img class="media-left" src="../assets/empty_tile.png" />
+          <p>Sigil: {{ tiles[1].sigil }}</p>
+        </div>
+        <button class="tile button">{{ down_arrow }}</button>
+      </div>
+    </div>
+    <!-- Tile 4 -->
+    <div class="tile box">
+      <div class="is-parent">
+        <button class="tile button">{{ up_arrow }}</button>
+        <div class="tile box is-child media-container">
+          <p>Attack: {{ tiles[1].attack }}, Health: {{ tiles[1].attack }}</p>
+          <img class="media-left" src="../assets/empty_tile.png" />
+          <p>Sigil: {{ tiles[1].sigil }}</p>
+        </div>
+        <a disabled class="tile button"></a>
+      </div>
+    </div>
+    <!-- Tiles end -->
   </div>
 </template>
 
-<script>
-export default {
-  name: "LaneItem",
-  data() {
-    return {};
-  },
-};
+<script setup>
+import { defineProps, ref, computed } from "vue";
+const props = defineProps({
+  tiles: { type: Array, default: null },
+});
+
+const tiles = computed(() => props.tiles);
+const down_arrow = ref("―――――――▼―――――――");
+const up_arrow = ref("―――――――▲―――――――");
 </script>
 
 <style scoped>
-.button {
-  margin: 0px 25px;
-  padding: 0px 100px;
-  min-height: 600px;
-  height: auto;
+#lane > div {
+  text-align: center;
+  border: 1px solid #aaa;
 }
 
-#lane {
-  min-width: 200px;
+div.is-parent {
+  text-align: center;
+  margin: 0px 10px;
+}
+
+div.is-child {
+  background-color: #abb;
 }
 </style>
