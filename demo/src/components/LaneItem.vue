@@ -1,13 +1,24 @@
 <template>
   <div id="lane">
     <div class="tile">
-      <div
-        class="tile is-ancestor is-vertical"
-        style="margin-top: 25px; margin-right: 25px"
-      >
+      <div class="tile is-ancestor is-vertical" style="margin-right: 25px">
         <div class="tile is-parent is-vertical">
           <article class="tile is-child box">
-            <p class="title">a,s,h|1|</p>
+            <p class="title is-vertical notification is-primary">
+              <button
+                class="button is-small is-vertical"
+                style="width: 60px; height: 30px"
+              >
+                ▲
+              </button>
+              a,s,h|1|
+              <button
+                class="button is-small is-vertical"
+                style="width: 60px; height: 30px"
+              >
+                ▼
+              </button>
+            </p>
           </article>
           <article class="tile is-child box">
             <p class="title">a,s,h|2|</p>
