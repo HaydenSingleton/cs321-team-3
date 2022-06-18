@@ -1,8 +1,25 @@
 <template>
   <div id="lane">
-    <div class="button">LANE</div>
-    <div class="column" @click="score = ++score % 6">
-      <p id="score" class="button">{{ score }}/5</p>
+    <div class="tile">
+      <div
+        class="tile is-ancestor is-vertical"
+        style="margin-top: 25px; margin-right: 25px"
+      >
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child box">
+            <p class="title">a,s,h|1|</p>
+          </article>
+          <article class="tile is-child box">
+            <p class="title">a,s,h|2|</p>
+          </article>
+          <article class="tile is-child box">
+            <p class="title">a,s,h|3|</p>
+          </article>
+          <article class="tile is-child box">
+            <p class="title">a,s,h|4|</p>
+          </article>
+        </div>
+      </div>
     </div>
   </div>
 </template>
