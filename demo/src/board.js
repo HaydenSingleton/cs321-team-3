@@ -3,7 +3,6 @@ import { Lane } from "./lane.js";
 
 export const Board = {
   lanes: [Lane, Lane, Lane, Lane],
-  directDamageTaken: 0,
   lives: 3,
   boardID: -1,
   loadBoard(boardLanes, lives) {
@@ -13,6 +12,7 @@ export const Board = {
   check: function () {
     console.log("Pressed Check button...");
     const initialBoard = this.lanes;
+    let directDamageTaken = 0;
 
     for (let i = 0; i <= 1; i++) {
       switch (this.lanes[1].tiles[2 - i].sigil) {
@@ -38,22 +38,21 @@ export const Board = {
           }
       }
     }
-
     for (let j = 0; j <= 3; j++) {
       switch (this.lanes[j].tiles[2].sigil) {
         case "Trifurcated Strike":
           if (j - 1 >= 0) {
-            this.directDamageTaken += this.lanes[j].hit(
+            directDamageTaken += this.lanes[j].hit(
               this.lanes[j].tiles[2],
               this.lanes[j - 1].tiles[1]
             );
           }
-          this.directDamageTaken += this.lanes[j].hit(
+          directDamageTaken += this.lanes[j].hit(
             this.lanes[j].tiles[2],
             this.lanes[j].tiles[1]
           );
           if (j + 1 <= 3) {
-            this.directDamageTaken += this.lanes[j].hit(
+            directDamageTaken += this.lanes[j].hit(
               this.lanes[j].tiles[2],
               this.lanes[j + 1].tiles[1]
             );
@@ -61,29 +60,29 @@ export const Board = {
           break;
         case "Bifurcated Strike":
           if (j - 1 >= 0) {
-            this.directDamageTaken += this.lanes[j].hit(
+            directDamageTaken += this.lanes[j].hit(
               this.lanes[j].tiles[2],
               this.lanes[j - 1].tiles[1]
             );
           }
           if (j + 1 <= 3) {
-            this.directDamageTaken += this.lanes[j].hit(
+            directDamageTaken += this.lanes[j].hit(
               this.lanes[j].tiles[2],
               this.lanes[j + 1].tiles[1]
             );
           }
           break;
         default:
-          this.directDamageTaken += this.lanes[j].hit(
+          directDamageTaken += this.lanes[j].hit(
             this.lanes[j].tiles[2],
             this.lanes[1].tiles[1]
           );
       }
     }
-    if (this.directDamageTaken < 5) {
+    if (directDamageTaken < 5) {
       this.loadBoard(initialBoard, this.lives - 1);
     }
 
-    return this.directDamageTaken;
+    return directDamageTaken;
   },
 };
