@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Lane } from "./lane.js";
-
+import { Tile } from "@/tile.js";
 export const Board = {
   lanes: [Lane, Lane, Lane, Lane],
   lives: 3,
@@ -16,13 +16,13 @@ export const Board = {
 
     for (let i = 0; i <= 1; i++) {
       switch (this.lanes[1].tiles[2 - i].sigil) {
-        case "Leader":
+        case "buffneighbors":
           if (this.lanes[2].tiles[2 - i] === false) {
             this.lanes[2].tiles[2 - i].attack++;
           }
       }
       switch (this.lanes[2].tiles[2 - i].sigil) {
-        case "Leader":
+        case "buffneighbors":
           if (this.lanes[1].tiles[2 - i].empty === false) {
             this.lanes[1].tiles[2 - i].attack++;
           } else if (this.lanes[3].tiles[2 - i].empty === false) {
@@ -30,7 +30,7 @@ export const Board = {
           }
       }
       switch (this.lanes[3].tiles[2 - i].sigil) {
-        case "Leader":
+        case "buffneighbors":
           if (this.lanes[2].tiles[2 - i].empty === false) {
             this.lanes[2].tiles[2 - i].attack++;
           } else if (this.lanes[4].tiles[2 - i].empty === false) {
@@ -40,7 +40,7 @@ export const Board = {
     }
     for (let j = 0; j <= 3; j++) {
       switch (this.lanes[j].tiles[2].sigil) {
-        case "Trifurcated Strike":
+        case "tristrike":
           if (j - 1 >= 0) {
             directDamageTaken += this.lanes[j].hit(
               this.lanes[j].tiles[2],
@@ -58,7 +58,7 @@ export const Board = {
             );
           }
           break;
-        case "Bifurcated Strike":
+        case "splitstrike":
           if (j - 1 >= 0) {
             directDamageTaken += this.lanes[j].hit(
               this.lanes[j].tiles[2],
@@ -84,5 +84,22 @@ export const Board = {
     }
 
     return directDamageTaken;
+  },
+  generate: function () {
+    console.log("Generating Board...");
+    const lane1 = Object.create(Lane);
+    lane1.tiles[0] = Object.create(Tile).assign(false, 1, 1, "deathtouch");
+    lane1.tiles[1] = Object.create(Tile).assign(false, 1, 1, "sharp");
+    lane1.tiles[2] = Object.create(Tile).assign(false, 3, 1, "flying");
+    const lane2 = Object.create(Lane);
+    lane2.tiles[0] = Object.create(Tile).assign(false, 1, 1, "preventattack");
+    lane2.tiles[1] = Object.create(Tile).assign(false, 1, 1, "reach");
+    lane3.tiles[2] = Object.create(Tile).assign(false, 1, 1, "flying");
+    const lane3 = Object.create(Lane);
+    lane3.tiles[1] = Object.create(Tile).assign(false, 1, 1, "submerge");
+    lane3.tiles[2] = Object.create(Tile).assign(false, 2, 1, "debuffenemy");
+    const lane4 = Object.create(Lane);
+    lane3.tiles[1] = Object.create(Tile).assign(false, 1, 1, "buffneighbors");
+    this.lanes = [lane1, lane2, lane3, lane4];
   },
 };

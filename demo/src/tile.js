@@ -15,9 +15,9 @@ export const Tile = {
     this.health = h;
     this.sigil = s;
   },
-  // death() {
-  //   if (this.health <= 0) {
-  //     this.reset();
-  //   }
-  // },
+  death() {
+    if (this.health <= 0) {
+      this.reset();
+    }
+  },
 };

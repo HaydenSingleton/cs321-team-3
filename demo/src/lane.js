@@ -2,7 +2,6 @@
 import { Tile } from "@/tile.js";
 
 export const Lane = {
-  damage: 0,
   tiles: [Tile, Tile, Tile, Tile],
 
   getTiles() {
@@ -36,11 +35,47 @@ export const Lane = {
     }
   },
   hit(tile1, tile2) {
-    // if () {
-    // }
-    //Sharp Quills
-    //if direct damage, return atk.
-    //else return 0
+    var directDamageTaken = 0;
+    switch (tile1.sigil) {
+      case "deathtouch":
+        if (tile2.empty == false) {
+          this.onHit(tile1, tile2);
+          tile2.reset();
+        } else {
+          directDamageTaken += tile1.atk;
+        }
+        break;
+      case "flying":
+        if (tile2.sigil == "reach") {
+          this.onHit(tile1, tile2);
+        } else {
+          directDamageTaken += tile1.atk;
+        }
+        break;
+      default:
+        if (tile2.empty == false && tile2.sigil != "submerge") {
+          this.onHit(tile1, tile2);
+        } else {
+          directDamageTaken += tile1.atk;
+        }
+    }
+    return directDamageTaken;
   },
-  onHit(tile1, tile2) {},
+  onHit(tile1, tile2) {
+    switch (tile2.sigil) {
+      case "debuffenemy":
+        tile2.health -= tile1.atk - 1;
+        tile2.death();
+        break;
+      case "preventattack":
+        break;
+      case "sharp":
+        tile2.health -= tile1.atk;
+        tile1.health -= 1;
+        break;
+      default:
+        tile2.health -= tile1.atk;
+        tile2.death();
+    }
+  },
 };

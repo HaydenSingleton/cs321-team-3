@@ -23,6 +23,7 @@ import { Board } from "@/board.js";
 import LaneItem from "@/components/LaneItem.vue";
 
 const score = ref(0);
+Board.generate();
 const lanes = Board.lanes;
 
 function checkWin() {
