@@ -42,17 +42,17 @@ export const Board = {
       switch (this.lanes[j].tiles[2].sigil) {
         case "tristrike":
           if (j - 1 >= 0) {
-            directDamageTaken += this.lanes[j].interact(
+            directDamageTaken += this.lanes[j].hit(
               this.lanes[j].tiles[2],
               this.lanes[j - 1].tiles[1]
             );
           }
-          directDamageTaken += this.lanes[j].interact(
+          directDamageTaken += this.lanes[j].hit(
             this.lanes[j].tiles[2],
             this.lanes[j].tiles[1]
           );
           if (j + 1 <= 3) {
-            directDamageTaken += this.lanes[j].interact(
+            directDamageTaken += this.lanes[j].hit(
               this.lanes[j].tiles[2],
               this.lanes[j + 1].tiles[1]
             );
@@ -60,29 +60,29 @@ export const Board = {
           break;
         case "splitstrike":
           if (j - 1 >= 0) {
-            directDamageTaken += this.lanes[j].interact(
+            directDamageTaken += this.lanes[j].hit(
               this.lanes[j].tiles[2],
               this.lanes[j - 1].tiles[1]
             );
           }
           if (j + 1 <= 3) {
-            directDamageTaken += this.lanes[j].interact(
+            directDamageTaken += this.lanes[j].hit(
               this.lanes[j].tiles[2],
               this.lanes[j + 1].tiles[1]
             );
           }
           break;
         default:
-          directDamageTaken += this.lanes[j].interact(
+          directDamageTaken += this.lanes[j].hit(
             this.lanes[j].tiles[2],
-            this.lanes[1].tiles[1]
+            this.lanes[j].tiles[1]
           );
       }
     }
     if (directDamageTaken < 5) {
       this.loadBoard(initialBoard, this.lives - 1);
     }
-
+    console.log("DDT", directDamageTaken);
     return directDamageTaken;
   },
   generate: function () {
