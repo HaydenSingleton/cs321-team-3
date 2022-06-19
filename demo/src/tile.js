@@ -2,7 +2,7 @@ export const Tile = {
   empty: true,
   attack: 0,
   health: 0,
-  sigil: "None",
+  sigil: "",
   reset() {
     this.empty = true;
     this.attack = 0;
