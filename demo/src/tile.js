@@ -14,6 +14,7 @@ export const Tile = {
     this.atk = a;
     this.health = h;
     this.sigil = s;
+    return this;
   },
   death() {
     if (this.health <= 0) {
