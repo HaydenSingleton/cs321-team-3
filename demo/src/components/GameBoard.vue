@@ -26,7 +26,7 @@ const score = ref(0);
 const lanes = Board.lanes;
 
 function checkWin() {
-  Board.check();
+  score.value = Board.check();
   console.log("Pressed Check. Calling playerPhase()");
 }
 </script>
