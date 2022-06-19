@@ -6,7 +6,7 @@ export const Board = {
   directDamageTaken: 0,
   lives: 3,
   boardID: -1,
-  loadBoard: function (boardLanes, lives) {
+  loadBoard(boardLanes, lives) {
     this.lanes = boardLanes;
     this.lives = lives;
   },
