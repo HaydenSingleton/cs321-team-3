@@ -3,12 +3,8 @@
     <!-- Tile 1 -->
     <div class="tile box">
       <div class="is-parent">
-        <a disabled class="tile button"></a>
-        <div class="tile box is-child media-container">
-          <p>Attack: {{ tiles[0].attack }}, Health: {{ tiles[0].attack }}</p>
-          <img class="media-left" src="../assets/empty_tile.png" />
-          <p>Sigil: {{ tiles[0].sigil }}</p>
-        </div>
+        <a class="tile button"></a>
+        <SigilTile :tile="null" />
         <button class="tile button">{{ down_arrow }}</button>
       </div>
     </div>
@@ -16,11 +12,7 @@
     <div class="tile box">
       <div class="is-parent">
         <button class="tile button">{{ up_arrow }}</button>
-        <div class="tile box is-child media-container">
-          <p>Attack: {{ tiles[1].attack }}, Health: {{ tiles[1].attack }}</p>
-          <img class="media-left" src="../assets/empty_tile.png" />
-          <p>Sigil: {{ tiles[1].sigil }}</p>
-        </div>
+        <SigilTile :tile="second" />
         <button class="tile button">{{ down_arrow }}</button>
       </div>
     </div>
@@ -28,11 +20,7 @@
     <div class="tile box">
       <div class="is-parent">
         <button class="tile button">{{ up_arrow }}</button>
-        <div class="tile box is-child media-container">
-          <p>Attack: {{ tiles[1].attack }}, Health: {{ tiles[1].attack }}</p>
-          <img class="media-left" src="../assets/empty_tile.png" />
-          <p>Sigil: {{ tiles[1].sigil }}</p>
-        </div>
+        <SigilTile :tile="third" />
         <button class="tile button">{{ down_arrow }}</button>
       </div>
     </div>
@@ -40,11 +28,7 @@
     <div class="tile box">
       <div class="is-parent">
         <button class="tile button">{{ up_arrow }}</button>
-        <div class="tile box is-child media-container">
-          <p>Attack: {{ tiles[1].attack }}, Health: {{ tiles[1].attack }}</p>
-          <img class="media-left" src="../assets/empty_tile.png" />
-          <p>Sigil: {{ tiles[1].sigil }}</p>
-        </div>
+        <SigilTile :tile="fourth" />
         <a disabled class="tile button"></a>
       </div>
     </div>
@@ -52,15 +36,31 @@
   </div>
 </template>
 
-<script setup>
-import { defineProps, ref, computed } from "vue";
-const props = defineProps({
-  tiles: { type: Array, default: null },
-});
+<script>
+import { ref } from "vue";
+import SigilTile from "@/components/SigilTile.vue";
 
-const tiles = computed(() => props.tiles);
-const down_arrow = ref("―――――――▼―――――――");
-const up_arrow = ref("―――――――▲―――――――");
+export default {
+  components: {
+    SigilTile,
+  },
+  props: {
+    tiles: { type: Array, default: () => [] },
+  },
+  setup(props) {
+    const first = ref(props.tiles[0]);
+    const second = ref(props.tiles[1]);
+    const third = ref(props.tiles[2]);
+    const fourth = ref(props.tiles[3]);
+
+    return { first, second, third, fourth };
+  },
+  data() {
+    const down_arrow = ref("―――――――▼―――――――");
+    const up_arrow = ref("―――――――▲―――――――");
+    return { down_arrow, up_arrow };
+  },
+};
 </script>
 
 <style scoped>
@@ -71,10 +71,6 @@ const up_arrow = ref("―――――――▲―――――――");
 
 div.is-parent {
   text-align: center;
-  margin: 0px 10px;
-}
-
-div.is-child {
-  background-color: #abb;
+  margin: 0 10px;
 }
 </style>
