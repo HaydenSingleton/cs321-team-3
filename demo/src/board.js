@@ -17,7 +17,7 @@ function loadBoard(preMadeBoard, life) {
 }
 
 function playerPhase() {
-  var intialBoard = this;
+  // var intialBoard = this.lanes;
   for (let i = 0; i <= 1; i++) {
     switch (this.lanes[1].lane[2 - i].sigil) {
       case "Leader":

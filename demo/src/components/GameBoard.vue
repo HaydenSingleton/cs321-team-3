@@ -3,7 +3,7 @@
     <div class="columns" style="margin-top: 25px">
       <div class="column">
         <p id="score" class="button">{{ score }}/5</p>
-        <button class="button" @click="playerPhase()">Check</button>
+        <button class="button" @click="check">Check</button>
       </div>
       <div class="tile is-ancestor">
         <LaneItem
@@ -25,4 +25,8 @@ import LaneItem from "@/components/LaneItem.vue";
 
 const score = ref(0);
 const lanes = board.lanes;
+function check() {
+  playerPhase();
+  console.log("Pressed Check. Calling playerPhase()");
+}
 </script>
