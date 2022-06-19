@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Lane } from "./lane.js";
-import { Tile } from "@/tile.js";
+
 export const Board = {
   lanes: [Lane, Lane, Lane, Lane],
   lives: 3,
@@ -23,17 +23,17 @@ export const Board = {
       }
       switch (this.lanes[2].tiles[2 - i].sigil) {
         case "buffneighbors":
-          if (this.lanes[1].tiles[2 - i].empty === false) {
+          if (this.lanes[1].tiles[2 - i].isEmpty === false) {
             this.lanes[1].tiles[2 - i].attack++;
-          } else if (this.lanes[3].tiles[2 - i].empty === false) {
+          } else if (this.lanes[3].tiles[2 - i].isEmpty === false) {
             this.lanes[3].tiles[2 - i].attack++;
           }
       }
       switch (this.lanes[3].tiles[2 - i].sigil) {
         case "buffneighbors":
-          if (this.lanes[2].tiles[2 - i].empty === false) {
+          if (this.lanes[2].tiles[2 - i].isEmpty === false) {
             this.lanes[2].tiles[2 - i].attack++;
-          } else if (this.lanes[4].tiles[2 - i].empty === false) {
+          } else if (this.lanes[4].tiles[2 - i].isEmpty === false) {
             this.lanes[4].tiles[2 - i].attack++;
           }
       }
@@ -86,7 +86,7 @@ export const Board = {
     return directDamageTaken;
   },
   generate: function () {
-    console.log("Generating Board...");
+    console.log("Generating example Board...");
     const lane1 = new Lane();
     lane1.tiles[0].Assign(false, 1, 3, "deathtouch");
     lane1.tiles[1].Assign(false, 1, 2, "sharp");
@@ -101,6 +101,5 @@ export const Board = {
     const lane4 = new Lane();
     lane4.tiles[1].Assign(false, 1, 1, "buffneighbors");
     this.lanes = [lane1, lane2, lane3, lane4];
-    console.log(this.lanes);
   },
 };

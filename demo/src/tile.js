@@ -1,18 +1,18 @@
 export function Tile() {
-  this["empty"] = true;
-  this["attack"] = 0;
+  this.isEmpty = true;
+  this.attack = 0;
   this.health = 0;
-  this.sigil = "";
+  this.sigil = "empty";
 
   this.reset = function () {
-    this.empty = true;
+    this.isEmpty = true;
     this.attack = 0;
     this.health = 0;
-    this.sigil = "";
+    this.sigil = "empty";
   };
 
   this.Assign = function (e, a, h, s) {
-    this.empty = e;
+    this.isEmpty = e;
     this.attack = a;
     this.health = h;
     this.sigil = s;
