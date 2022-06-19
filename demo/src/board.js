@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Lane } from "./lane.js";
-
+import { Tile } from "@/tile.js";
 export const Board = {
   lanes: [Lane, Lane, Lane, Lane],
   directDamageTaken: 0,
@@ -85,5 +85,14 @@ export const Board = {
     }
 
     return this.directDamageTaken;
+  },
+  generate: function () {
+    console.log("Generating Board...");
+    const lane1 = Object.create(Lane);
+    lane1.tiles[0] = Object.create(Tile).assign(false, 1, 1, "");
+    const lane2 = Object.create(Lane);
+    const lane3 = Object.create(Lane);
+    const lane4 = Object.create(Lane);
+    this.lanes = [lane1, lane2, lane3, lane4];
   },
 };
