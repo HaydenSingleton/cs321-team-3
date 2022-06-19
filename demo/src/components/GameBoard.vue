@@ -3,6 +3,7 @@
     <div class="columns" style="margin-top: 25px">
       <div class="column">
         <p id="score" class="button">{{ score }}/5</p>
+        <button class="button" @click="playerPhase()">Check</button>
       </div>
       <div class="tile is-ancestor">
         <LaneItem
@@ -19,7 +20,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { board } from "@/board.js";
+import { board, playerPhase } from "@/board.js";
 import LaneItem from "@/components/LaneItem.vue";
 
 const score = ref(0);
