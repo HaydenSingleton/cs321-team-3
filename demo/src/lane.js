@@ -29,13 +29,13 @@ export const Lane = {
   interact() {
     //Active Zone
     if (this.tiles[2].empty === false) {
-      this.hit_damage(this.tiles[2], this.tiles[1]); //player attacks first
+      this.hit(this.tiles[2], this.tiles[1]); //player attacks first
     }
     if (this.tiles[1].empty === false) {
-      this.hit_enemy(this.tiles[1], this.tiles[2]); // enemy attacks only if it survived player attack.
+      this.hit(this.tiles[1], this.tiles[2]); // enemy attacks only if it survived player attack.
     }
   },
-  hit_damage(tile1, tile2) {
+  hit(tile1, tile2) {
     // if () {
     // }
     //Sharp Quills

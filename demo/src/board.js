@@ -11,78 +11,79 @@ export const Board = {
     this.lives = lives;
   },
   check: function () {
+    console.log("Pressed Check button...");
     const initialBoard = this.lanes;
 
     for (let i = 0; i <= 1; i++) {
-      switch (this.lanes[1].lane[2 - i].sigil) {
+      switch (this.lanes[1].tiles[2 - i].sigil) {
         case "Leader":
-          if (this.lanes[2].lane[2 - i] === false) {
-            this.lanes[2].lane[2 - i].atk++;
+          if (this.lanes[2].tiles[2 - i] === false) {
+            this.lanes[2].tiles[2 - i].attack++;
           }
       }
-      switch (this.lanes[2].lane[2 - i].sigil) {
+      switch (this.lanes[2].tiles[2 - i].sigil) {
         case "Leader":
-          if (this.lanes[1].lane[2 - i].empty === false) {
-            this.lanes[1].lane[2 - i].atk++;
-          } else if (this.lanes[3].lane[2 - i].empty === false) {
-            this.lanes[3].lane[2 - i].atk++;
+          if (this.lanes[1].tiles[2 - i].empty === false) {
+            this.lanes[1].tiles[2 - i].attack++;
+          } else if (this.lanes[3].tiles[2 - i].empty === false) {
+            this.lanes[3].tiles[2 - i].attack++;
           }
       }
-      switch (this.lane3.lane[2 - i].sigil) {
+      switch (this.lanes[3].tiles[2 - i].sigil) {
         case "Leader":
-          if (this.lanes[2].lane[2 - i].empty === false) {
-            this.lanes[2].lane[2 - i].atk++;
-          } else if (this.lanes[4].lane[2 - i].empty === false) {
-            this.lanes[4].lane[2 - i].atk++;
+          if (this.lanes[2].tiles[2 - i].empty === false) {
+            this.lanes[2].tiles[2 - i].attack++;
+          } else if (this.lanes[4].tiles[2 - i].empty === false) {
+            this.lanes[4].tiles[2 - i].attack++;
           }
       }
     }
 
     for (let j = 0; j <= 3; j++) {
-      switch (this.lanes[j].lane[2].sigil) {
+      switch (this.lanes[j].tiles[2].sigil) {
         case "Trifurcated Strike":
           if (j - 1 >= 0) {
             this.directDamageTaken += this.lanes[j].hit(
-              this.lanes[j].lane[2],
-              this.lane[j - 1].lane[1]
+              this.lanes[j].tiles[2],
+              this.lanes[j - 1].tiles[1]
             );
           }
           this.directDamageTaken += this.lanes[j].hit(
-            this.lanes[j].lane[2],
-            this.lanes[j].lane[1]
+            this.lanes[j].tiles[2],
+            this.lanes[j].tiles[1]
           );
           if (j + 1 <= 3) {
             this.directDamageTaken += this.lanes[j].hit(
-              this.lanes[j].lane[2],
-              this.lanes[j + 1].lane[1]
+              this.lanes[j].tiles[2],
+              this.lanes[j + 1].tiles[1]
             );
           }
           break;
         case "Bifurcated Strike":
           if (j - 1 >= 0) {
             this.directDamageTaken += this.lanes[j].hit(
-              this.lanes[j].lane[2],
-              this.lane[j - 1].lane[1]
+              this.lanes[j].tiles[2],
+              this.lanes[j - 1].tiles[1]
             );
           }
           if (j + 1 <= 3) {
             this.directDamageTaken += this.lanes[j].hit(
-              this.lanes[j].lane[2],
-              this.lanes[j + 1].lane[1]
+              this.lanes[j].tiles[2],
+              this.lanes[j + 1].tiles[1]
             );
           }
           break;
         default:
           this.directDamageTaken += this.lanes[j].hit(
-            this.lanes[j].lane[2],
-            this.lane1.lane[1]
+            this.lanes[j].tiles[2],
+            this.lanes[1].tiles[1]
           );
       }
     }
-    if (this.directDamageTaken >= 5) {
-      //WIN
-    } else {
+    if (this.directDamageTaken < 5) {
       this.loadBoard(initialBoard, this.lives - 1);
     }
+
+    return this.directDamageTaken;
   },
 };
