@@ -38,11 +38,13 @@ export class Lane {
     this.interact = function () {
       //Active Zone
       if (this.tiles[2].empty === false) {
+        console.log("2", this.tiles[2].sigil);
+        console.log("1", this.tiles[1].sigil);
         this.hit(this.tiles[2], this.tiles[1]); //player attacks first
       }
-      if (this.tiles[1].empty === false) {
-        this.hit(this.tiles[1], this.tiles[2]); // enemy attacks only if it survived player attack.
-      }
+      /*if (this.tiles[2].empty === false) {
+        this.hit(this.tiles[2], this.tiles[1]); // enemy attacks only if it survived player attack.
+      }*/
     };
 
     this.hit = function (tile1, tile2) {
