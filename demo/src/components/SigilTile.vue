@@ -2,7 +2,7 @@
   <div class="tile is-child is-vertical">
     <button v-if="showTopButton" class="tile button">{{ up_arrow }}</button>
     <button v-else disabled class="tile button">{{ no_arrow }}</button>
-    <div v-if="!empty || empty" class="tile media-container">
+    <div v-if="!empty" class="tile media-container">
       <p>Attack: {{ attack }}, Health: {{ health }}</p>
       <img class="media-left" :src="imageLocation" alt="Default sigil" />
       <p>Sigil: {{ name }}</p>
