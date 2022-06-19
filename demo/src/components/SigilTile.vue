@@ -47,10 +47,11 @@ export default {
       return this.position < 3;
     },
     imageLocation() {
-      return require("@/assets/" + this.tileName + ".png");
+      return require("@/assets/abilities/ability_" + this.tileName + ".png");
     },
   },
   mounted() {
+    console.log("SigilTile Value", this.sigil);
     // console.log("position", this.position, "name", this.name);
   },
 };

@@ -87,7 +87,7 @@ export class Lane {
           break;
         default:
           tile2.health -= tile1.atk;
-        // tile2.death();
+          tile2.death();
       }
     };
   }

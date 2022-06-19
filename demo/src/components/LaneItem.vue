@@ -8,7 +8,7 @@
           :key="tileList.indexOf(item)"
           :tile-attack="item.attack"
           :tile-health="item.health"
-          :tile-name="item.name"
+          :tile-name="item.sigil"
           :tile-empty="item.empty"
           :position="tileList.indexOf(item)"
         />
@@ -30,6 +30,7 @@ export default {
   },
   data() {
     const count = ref(0);
+    console.log("LaneItem Value", this.tiles[0].sigil);
     return { count, tileList: this.tiles };
   },
 };
