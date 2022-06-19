@@ -88,8 +88,8 @@ export const Board = {
   generate: function () {
     console.log("Generating Board...");
     const lane1 = new Lane();
-    lane1.tiles[0].Assign(false, 1, 1, "deathtouch");
-    lane1.tiles[1].Assign(false, 1, 1, "sharp");
+    lane1.tiles[0].Assign(false, 1, 3, "deathtouch");
+    lane1.tiles[1].Assign(false, 1, 2, "sharp");
     lane1.tiles[2].Assign(false, 3, 1, "flying");
     const lane2 = new Lane();
     lane2.tiles[0].Assign(false, 1, 1, "preventattack");
