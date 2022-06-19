@@ -8,9 +8,9 @@
       <div class="tile is-ancestor">
         <LaneItem
           v-for="item in lanes"
-          :key="item.id"
+          :key="lanes.indexOf(item)"
           :tiles="item.getTiles()"
-          :position="item.id"
+          :position="lanes.indexOf(item)"
         ></LaneItem>
       </div>
       <div class="column">Info</div>
@@ -20,13 +20,14 @@
 
 <script setup>
 import { ref } from "vue";
-import { board, playerPhase } from "@/board.js";
+import { Board } from "@/board.js";
 import LaneItem from "@/components/LaneItem.vue";
 
 const score = ref(0);
-const lanes = board.lanes;
+const lanes = Board.lanes;
+
 function check() {
-  playerPhase();
+  Board.check();
   console.log("Pressed Check. Calling playerPhase()");
 }
 </script>
