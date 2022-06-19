@@ -1,24 +1,20 @@
-export const Tile = {
-  empty: true,
-  attack: 0,
-  health: 0,
-  sigil: "",
-  reset() {
+export function Tile() {
+  this["empty"] = true;
+  this["attack"] = 0;
+  this.health = 0;
+  this.sigil = "";
+
+  this.reset = function () {
     this.empty = true;
     this.attack = 0;
     this.health = 0;
     this.sigil = "";
-  },
-  assign(e, a, h, s) {
+  };
+
+  this.Assign = function (e, a, h, s) {
     this.empty = e;
     this.atk = a;
     this.health = h;
     this.sigil = s;
-    return this;
-  },
-  death() {
-    if (this.health <= 0) {
-      this.reset();
-    }
-  },
-};
+  };
+}

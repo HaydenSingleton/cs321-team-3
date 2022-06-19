@@ -87,19 +87,19 @@ export const Board = {
   },
   generate: function () {
     console.log("Generating Board...");
-    const lane1 = Object.create(Lane);
-    lane1.tiles[0] = Tile.assign(false, 1, 1, "deathtouch");
-    lane1.tiles[1] = Tile.assign(false, 1, 1, "sharp");
-    lane1.tiles[2] = Tile.assign(false, 3, 1, "flying");
-    const lane2 = Object.create(Lane);
-    lane2.tiles[0] = Object.create(Tile).assign(false, 1, 1, "preventattack");
-    lane2.tiles[1] = Object.create(Tile).assign(false, 1, 1, "reach");
-    lane2.tiles[2] = Object.create(Tile).assign(false, 1, 1, "flying");
-    const lane3 = Object.create(Lane);
-    lane3.tiles[1] = Object.create(Tile).assign(false, 1, 1, "submerge");
-    lane3.tiles[2] = Object.create(Tile).assign(false, 2, 1, "debuffenemy");
-    const lane4 = Object.create(Lane);
-    lane3.tiles[1] = Object.create(Tile).assign(false, 1, 1, "buffneighbors");
+    const lane1 = new Lane();
+    lane1.tiles[0].Assign(false, 1, 1, "deathtouch");
+    lane1.tiles[1].Assign(false, 1, 1, "sharp");
+    lane1.tiles[2].Assign(false, 3, 1, "flying");
+    const lane2 = new Lane();
+    lane2.tiles[0].Assign(false, 1, 1, "preventattack");
+    lane2.tiles[1].Assign(false, 1, 1, "reach");
+    lane2.tiles[2].Assign(false, 1, 1, "flying");
+    const lane3 = new Lane();
+    lane3.tiles[1].Assign(false, 1, 1, "submerge");
+    lane3.tiles[2].Assign(false, 2, 1, "debuffenemy");
+    const lane4 = new Lane();
+    lane4.tiles[1].Assign(false, 1, 1, "buffneighbors");
     this.lanes = [lane1, lane2, lane3, lane4];
     console.log(this.lanes);
   },
