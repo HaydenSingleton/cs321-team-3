@@ -9,6 +9,9 @@ export const Board = {
     this.lanes = boardLanes;
     this.lives = lives;
   },
+  getLives() {
+    return this.lives;
+  },
   check: function () {
     console.log("Pressed Check button...");
     const initialBoard = this.lanes;
@@ -82,7 +85,7 @@ export const Board = {
     if (directDamageTaken < 5) {
       this.loadBoard(initialBoard, this.lives - 1);
     }
-    console.log("DDT", directDamageTaken);
+    console.log("lives", this.lives);
     return directDamageTaken;
   },
   generate: function () {
@@ -90,7 +93,7 @@ export const Board = {
     const lane1 = new Lane();
     lane1.tiles[0].Assign(false, 1, 3, "deathtouch");
     lane1.tiles[1].Assign(false, 1, 2, "sharp");
-    lane1.tiles[2].Assign(false, 3, 1, "flying");
+    lane1.tiles[2].Assign(false, 1, 1, "flying");
     const lane2 = new Lane();
     lane2.tiles[0].Assign(false, 1, 1, "preventattack");
     lane2.tiles[1].Assign(false, 1, 1, "reach");
