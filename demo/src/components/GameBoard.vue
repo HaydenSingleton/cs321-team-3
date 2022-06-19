@@ -7,9 +7,9 @@
       </div>
       <div class="columns">
         <LaneItem
-          v-for="item in lanes"
-          :key="lanes.indexOf(item)"
-          :tiles="item.getTiles()"
+          v-for="(item, index) in lanes"
+          :key="index"
+          :lane="item"
         ></LaneItem>
       </div>
       <div class="column">Info</div>
