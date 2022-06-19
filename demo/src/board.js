@@ -77,6 +77,10 @@ export const Board = {
             this.lanes[j].tiles[2],
             this.lanes[1].tiles[1]
           );
+          console.log(
+            "Board",
+            this.lanes[j].hit(this.lanes[j].tiles[2], this.lanes[1].tiles[1])
+          );
       }
     }
     if (directDamageTaken < 5) {

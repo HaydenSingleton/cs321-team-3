@@ -53,23 +53,24 @@ export class Lane {
             this.onHit(tile1, tile2);
             tile2.reset();
           } else {
-            directDamageTaken += tile1.atk;
+            directDamageTaken += tile1.attack;
           }
           break;
         case "flying":
           if (tile2.sigil === "reach") {
             this.onHit(tile1, tile2);
           } else {
-            directDamageTaken += tile1.atk;
+            directDamageTaken += tile1.attack;
           }
           break;
         default:
           if (tile2.empty === false && tile2.sigil !== "submerge") {
             this.onHit(tile1, tile2);
           } else {
-            directDamageTaken += tile1.atk;
+            directDamageTaken += tile1.attack;
           }
       }
+      console.log("Lane", directDamageTaken);
       return directDamageTaken;
     };
 
@@ -82,11 +83,11 @@ export class Lane {
         case "preventattack":
           break;
         case "sharp":
-          tile2.health -= tile1.atk;
+          tile2.health -= tile1.attack;
           tile1.health -= 1;
           break;
         default:
-          tile2.health -= tile1.atk;
+          tile2.health -= tile1.attack;
           tile2.death();
       }
     };

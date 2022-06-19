@@ -51,7 +51,7 @@ export default {
     },
   },
   mounted() {
-    console.log("SigilTile Value", this.sigil);
+    //console.log("SigilTile Value", this.sigil);
     // console.log("position", this.position, "name", this.name);
   },
 };

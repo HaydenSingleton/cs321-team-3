@@ -17,4 +17,10 @@ export function Tile() {
     this.health = h;
     this.sigil = s;
   };
+
+  this.death = function () {
+    if (this.health <= 0) {
+      this.reset();
+    }
+  };
 }
