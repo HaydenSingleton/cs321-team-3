@@ -3,14 +3,13 @@
     <div class="columns" style="margin-top: 25px">
       <div class="column">
         <p id="score" class="button">{{ score }}/5</p>
-        <button class="button" @click="check">Check</button>
+        <button class="button" @click="checkWin">Check</button>
       </div>
       <div class="tile is-ancestor">
         <LaneItem
           v-for="item in lanes"
           :key="lanes.indexOf(item)"
           :tiles="item.getTiles()"
-          :position="lanes.indexOf(item)"
         ></LaneItem>
       </div>
       <div class="column">Info</div>
@@ -26,7 +25,7 @@ import LaneItem from "@/components/LaneItem.vue";
 const score = ref(0);
 const lanes = Board.lanes;
 
-function check() {
+function checkWin() {
   Board.check();
   console.log("Pressed Check. Calling playerPhase()");
 }

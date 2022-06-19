@@ -11,7 +11,8 @@ export const Board = {
     this.lives = lives;
   },
   check: function () {
-    // var intialBoard = this.lanes;
+    const initialBoard = this.lanes;
+
     for (let i = 0; i <= 1; i++) {
       switch (this.lanes[1].lane[2 - i].sigil) {
         case "Leader":
@@ -36,6 +37,7 @@ export const Board = {
           }
       }
     }
+
     for (let j = 0; j <= 3; j++) {
       switch (this.lanes[j].lane[2].sigil) {
         case "Trifurcated Strike":
@@ -80,7 +82,7 @@ export const Board = {
     if (this.directDamageTaken >= 5) {
       //WIN
     } else {
-      this.loadBoard(this.initialBoard, this.lives - 1);
+      this.loadBoard(initialBoard, this.lives - 1);
     }
   },
 };

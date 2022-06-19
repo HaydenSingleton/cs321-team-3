@@ -9,7 +9,7 @@ export const Lane = {
     return this.tiles;
   },
   moveUp(tile) {
-    var curIndex = this.tiles.indexOf(tile);
+    let curIndex = this.tiles.indexOf(tile);
     if (curIndex !== 0) {
       if (this.tiles[curIndex - 1].empty === true) {
         this.tiles[curIndex - 1] = tile;
@@ -18,7 +18,7 @@ export const Lane = {
     }
   },
   moveDown(tile) {
-    var curIndex = this.lane.indexOf(tile);
+    let curIndex = this.tiles.indexOf(tile);
     if (curIndex !== 3) {
       if (this.tiles[curIndex + 1].empty === true) {
         this.tiles[curIndex + 1] = tile;
@@ -29,10 +29,10 @@ export const Lane = {
   interact() {
     //Active Zone
     if (this.tiles[2].empty === false) {
-      this.hit_damage(this.lane[2], this.lane[1]); //player attacks first
+      this.hit_damage(this.tiles[2], this.tiles[1]); //player attacks first
     }
-    if (this.latile_lanene[1].empty === false) {
-      this.hit_enemy(this.lane[1], this.lane[2]); // enemy attacks only if it survived player attack.
+    if (this.tiles[1].empty === false) {
+      this.hit_enemy(this.tiles[1], this.tiles[2]); // enemy attacks only if it survived player attack.
     }
   },
   hit_damage(tile1, tile2) {
