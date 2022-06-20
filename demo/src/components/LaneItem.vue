@@ -1,10 +1,10 @@
 <template>
-  <div class="lane is-ancestor">
-    <div class="tile is-vertical">
+  <div id="lane" class="is-ancestor">
+    <div class="tile is-parent is-vertical">
       <div
         v-for="(tile, position) in tiles"
         :key="tile.sigil + position"
-        class="tile is-child"
+        class="tile is-child is-primary"
       >
         <button
           v-if="position > 0 && !tile.isEmpty"
@@ -16,12 +16,15 @@
         <button v-else disabled class="tile button disabled">
           {{ no_arrow }}
         </button>
-        <div v-if="!tile.isEmpty" class="tile box media-container is-parent">
-          <div class="tile is-vertical is-child">
+        <div
+          v-if="!tile.isEmpty"
+          class="tile box media-container is-child is-link"
+        >
+          <div class="tile is-vertical">
             Attack: {{ tile.attack }} Health: {{ tile.health }}
           </div>
           <img
-            class="media-left is-64by64 is-child"
+            class="media-left is-64by64"
             :src="require('@/assets/abilities/ability_' + tile.sigil + '.png')"
             :alt="tile.sigil"
           />
@@ -73,28 +76,28 @@ export default {
 </script>
 
 <style scoped>
-.lane {
+#lane {
   text-align: center;
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.is-parent {
-  background: antiquewhite;
-}
-
-.box {
+.is-child {
   margin: 1px;
 }
 
 .media-container {
-  background-color: floralwhite;
   text-align: center;
   display: block;
+  background: lightgreen;
+}
+
+.button {
+  background: darkseagreen;
 }
 
 .disabled {
-  background: lightgray;
   opacity: 50%;
+  background: lightgray;
 }
 </style>

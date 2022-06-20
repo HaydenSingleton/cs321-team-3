@@ -4,15 +4,6 @@
       <div class="column">
         <p id="score" class="button">{{ score }}/5</p>
         <button class="button" @click="checkWin">Check</button>
-        <div class="box">
-          <div class="content">
-            <p>Lives: {{ lives }}</p>
-          </div>
-        </div>
-        <form class="box">
-          <p id="score" class="content">mapID:{{ mapID }}</p>
-          <button class="button" @click="changeMapID(lanes)">New Map</button>
-        </form>
       </div>
       <div class="columns">
         <LaneItem
@@ -21,7 +12,11 @@
           :tile-list="item.getTiles()"
         ></LaneItem>
       </div>
-      <div class="column"></div>
+      <div class="column">
+        <div class="message is-info">
+          <div class="message-body is-dark">Lives: {{ lives }}</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -34,7 +29,6 @@ import { Lane } from "@/lane";
 import { Tile } from "@/tile";
 
 const score = ref(0);
-const mapID = ref(0);
 const lives = ref(3);
 
 const board = new Board(
@@ -59,27 +53,11 @@ const board = new Board(
 const lanes = board.getLanes();
 
 function checkWin() {
-  //console.log("Score:", score.value);
   score.value = board.check();
   lives.value = board.getLives();
-  console.log("Board.check() returned:", score.value);
 }
 
-function changeMapID(lanes) {
-  mapID.value = (mapID.value + 1) % 5;
-  let newLanes = preGeneratedBoards[mapID.value].getLanes();
-  console.log("New lanes:", newLanes);
-
-  while (lanes.length > 0) lanes.pop();
-
-  console.log(lanes);
-  lanes.push(newLanes[0]);
-  lanes.push(newLanes[1]);
-  lanes.push(newLanes[2]);
-  lanes.push(newLanes[3]);
-  console.log(lanes);
-}
-
+/*
 const preGeneratedBoards = [
   new Board(
     new Lane(
@@ -158,4 +136,5 @@ const preGeneratedBoards = [
     )
   ),
 ];
+*/
 </script>
