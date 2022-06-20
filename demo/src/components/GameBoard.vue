@@ -19,7 +19,7 @@
           :lane="item"
         ></LaneItem>
       </div>
-      <div class="column">Info</div>
+      <div class="column"></div>
     </div>
   </div>
 </template>
