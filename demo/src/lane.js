@@ -87,6 +87,7 @@ export class Lane {
         case "sharp":
           tile2.health -= tile1.attack;
           tile1.health -= 1;
+          tile1.death();
           break;
         default:
           tile2.health -= tile1.attack;
