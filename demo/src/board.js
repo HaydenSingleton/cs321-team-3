@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { Lane } from "./lane.js";
 import { Tile } from "@/tile";
 
@@ -102,3 +101,82 @@ export class Board {
     return directDamageTaken;
   }
 }
+
+export const preGeneratedBoards = [
+  new Board(
+    new Lane(
+      new Tile(false, 1, 3, "tristrike"),
+      new Tile(false, 1, 3, "tristrike")
+    ),
+    new Lane(
+      new Tile(false, 1, 3, "tristrike"),
+      new Tile(false, 1, 3, "tristrike")
+    ),
+    new Lane(
+      new Tile(false, 1, 3, "tristrike"),
+      new Tile(false, 1, 3, "tristrike")
+    ),
+    new Lane(
+      new Tile(false, 1, 3, "tristrike"),
+      new Tile(false, 1, 3, "tristrike")
+    )
+  ),
+  new Board(
+    new Lane(
+      new Tile(false, 1, 3, "splitstrike"),
+      new Tile(false, 1, 3, "splitstrike")
+    ),
+    new Lane(
+      new Tile(false, 1, 3, "splitstrike"),
+      new Tile(false, 1, 3, "splitstrike")
+    ),
+    new Lane(
+      new Tile(false, 1, 3, "splitstrike"),
+      new Tile(false, 1, 3, "splitstrike")
+    ),
+    new Lane(
+      new Tile(false, 1, 3, "splitstrike"),
+      new Tile(false, 1, 3, "splitstrike")
+    )
+  ),
+  new Board(
+    new Lane(
+      new Tile(false, 1, 3, "buffneighbors"),
+      new Tile(false, 1, 3, "buffneighbors")
+    ),
+    new Lane(
+      new Tile(false, 1, 3, "buffneighbors"),
+      new Tile(false, 1, 3, "buffneighbors")
+    ),
+    new Lane(
+      new Tile(false, 1, 3, "buffneighbors"),
+      new Tile(false, 1, 3, "buffneighbors")
+    ),
+    new Lane(
+      new Tile(false, 1, 3, "buffneighbors"),
+      new Tile(false, 1, 3, "buffneighbors")
+    )
+  ),
+  new Board(
+    new Lane(
+      new Tile(false, 1, 3, "deathtouch"),
+      new Tile(false, 1, 3, "sharp"),
+      new Tile(false, 1, 3, "deathtouch")
+    ),
+    new Lane(
+      new Tile(false, 1, 3, "preventattack"),
+      new Tile(false, 1, 3, "sharp"),
+      new Tile(false, 1, 3, "splitstrike")
+    ),
+    new Lane(
+      new Tile(false, 1, 3, "flying"),
+      new Tile(false, 1, 3, "preventattack"),
+      new Tile(),
+      new Tile(false, 1, 3, "preventattack")
+    ),
+    new Lane(
+      new Tile(false, 1, 3, "buffneighbors"),
+      new Tile(false, 1, 3, "empty")
+    )
+  ),
+];
