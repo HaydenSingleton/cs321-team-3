@@ -21,7 +21,7 @@
           :tile-list="item.getTiles()"
         ></LaneItem>
       </div>
-      <div class="column">Info</div>
+      <div class="column"></div>
     </div>
   </div>
 </template>
