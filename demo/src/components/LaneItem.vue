@@ -1,41 +1,41 @@
 <template>
-  <div id="lane" class="column">
-    <!-- Tile 1 -->
-    <div class="tile">
-      <div class="tile is-ancestor is-vertical box">
-        <div
-          v-for="(tile, position) in tiles"
-          :key="tile.sigil + position"
-          class="tile is-child is-vertical"
+  <div class="lane is-ancestor">
+    <div class="tile is-vertical">
+      <div
+        v-for="(tile, position) in tiles"
+        :key="tile.sigil + position"
+        class="tile is-child"
+      >
+        <button
+          v-if="position > 0 && !tile.isEmpty"
+          class="tile button enabled"
+          @click="moveUp(position)"
         >
-          <button
-            v-if="position > 0"
-            class="tile button"
-            @click="moveUp(position, !tile.isEmpty)"
-          >
-            {{ up_arrow }}
-          </button>
-          <button v-else disabled class="tile button">{{ no_arrow }}</button>
-          <div v-if="!tile.isEmpty" class="tile box media-container">
-            <span>Attack: {{ tile.attack }}</span>
-            <span>Health: {{ tile.health }}</span>
-            <img
-              class="media-left is-64by64"
-              :src="
-                require('@/assets/abilities/ability_' + tile.sigil + '.png')
-              "
-              alt="Default sigil"
-            />
+          {{ up_arrow }}
+        </button>
+        <button v-else disabled class="tile button disabled">
+          {{ no_arrow }}
+        </button>
+        <div v-if="!tile.isEmpty" class="tile box media-container is-parent">
+          <div class="tile is-vertical is-child">
+            Attack: {{ tile.attack }} Health: {{ tile.health }}
           </div>
-          <button
-            v-if="position < 3"
-            class="tile button"
-            @click="moveDown(position, !tile.isEmpty)"
-          >
-            {{ down_arrow }}
-          </button>
-          <button v-else disabled class="tile button">{{ no_arrow }}</button>
+          <img
+            class="media-left is-64by64 is-child"
+            :src="require('@/assets/abilities/ability_' + tile.sigil + '.png')"
+            :alt="tile.sigil"
+          />
         </div>
+        <button
+          v-if="position < 3 && !tile.isEmpty"
+          class="tile button enabled"
+          @click="moveDown(position)"
+        >
+          {{ down_arrow }}
+        </button>
+        <button v-else disabled class="tile button disabled">
+          {{ no_arrow }}
+        </button>
       </div>
     </div>
   </div>
@@ -43,44 +43,29 @@
 
 <script>
 import { ref } from "vue";
-import { Lane } from "@/lane.js";
+import { Lane } from "@/lane";
 
 export default {
-  props: { lane: { type: Lane, default: [] } },
+  props: { tileList: { type: Object, default: new Lane().getTiles() } },
   data() {
     const down_arrow = ref("―――――――▼―――――――");
     const up_arrow = ref("―――――――▲―――――――");
     const no_arrow = ref("―――――――――――――――");
-    const tiles = this.lane.getTiles();
-    return { tiles, down_arrow, up_arrow, no_arrow };
+    return { tiles: this.tileList, down_arrow, up_arrow, no_arrow };
   },
   methods: {
-    moveUp(pos, valid) {
-      if (valid) {
-        if (this.tiles[pos - 1].isEmpty === true) {
-          console.log("Trying to move up tile", pos);
-          let a = this.tiles[pos].attack;
-          let h = this.tiles[pos].health;
-          let s = this.tiles[pos].sigil;
-          this.tiles[pos - 1].Assign(false, a, h, s);
-          this.tiles[pos].reset();
-        } else {
-          console.log("Cannot move tile", pos);
-        }
+    moveUp(pos) {
+      let t = this.tiles[pos];
+      if (this.tiles[pos - 1].isEmpty === true) {
+        this.tiles[pos - 1].Assign(false, t.attack, t.health, t.sigil);
+        this.tiles[pos].reset();
       }
     },
-    moveDown(pos, valid) {
-      if (valid) {
-        if (this.tiles[pos + 1].isEmpty === true) {
-          console.log("Trying to move down tile", pos);
-          let a = this.tiles[pos].attack;
-          let h = this.tiles[pos].health;
-          let s = this.tiles[pos].sigil;
-          this.tiles[pos + 1].Assign(false, a, h, s);
-          this.tiles[pos].reset();
-        } else {
-          console.log("Cannot move tile", pos);
-        }
+    moveDown(pos) {
+      let t = this.tiles[pos];
+      if (this.tiles[pos + 1].isEmpty === true) {
+        this.tiles[pos + 1].Assign(false, t.attack, t.health, t.sigil);
+        this.tiles[pos].reset();
       }
     },
   },
@@ -88,26 +73,28 @@ export default {
 </script>
 
 <style scoped>
-#lane {
+.lane {
   text-align: center;
-  margin-left: auto;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.is-ancestor {
-  text-align: center;
-  border: 1px solid #aaa;
-  background: whitesmoke;
+.is-parent {
+  background: antiquewhite;
 }
 
 .box {
-  margin: 0px;
-  border-radius: 5px;
+  margin: 1px;
 }
 
 .media-container {
-  background-color: lightgray;
+  background-color: floralwhite;
   text-align: center;
   display: block;
+}
+
+.disabled {
+  background: lightgray;
+  opacity: 50%;
 }
 </style>

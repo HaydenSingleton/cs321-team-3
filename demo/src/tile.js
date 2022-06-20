@@ -1,8 +1,8 @@
-export function Tile() {
-  this.isEmpty = true;
-  this.attack = 0;
-  this.health = 0;
-  this.sigil = "empty";
+export function Tile(e = true, a = 0, h = 0, s = "empty") {
+  this.isEmpty = e;
+  this.attack = a;
+  this.health = h;
+  this.sigil = s;
 
   this.reset = function () {
     this.isEmpty = true;
