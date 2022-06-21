@@ -3,7 +3,7 @@
     <div class="columns">
       <div class="column is-1">
         <div class="title">
-          <div id="score" class="button is-dark">
+          <div id="score" class="button is-dark title">
             <span>{{ score }}/5</span>
           </div>
           <div class="content"></div>
@@ -60,7 +60,6 @@ const board = new Board(
   new Lane(
     new Tile(false, 1, 3, "deathtouch"),
     new Tile(false, 1, 2, "sharp"),
-    new Tile(),
     new Tile(false, 3, 1, "flying")
   ),
   new Lane(

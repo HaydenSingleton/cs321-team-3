@@ -37,7 +37,7 @@
             />
           </figure>
         </div>
-        <div v-else class="tile is-child"></div>
+        <!--        <div v-else class="tile is-child"></div>-->
         <button
           v-if="position < 3 && !card.isEmpty"
           class="button"
@@ -66,8 +66,7 @@ export default {
   data() {
     const down_arrow = ref("―――――――▼―――――――");
     const up_arrow = ref("―――――――▲―――――――");
-    const no_arrow = ref("―――――――――――――――");
-    return { cards: this.tileList, down_arrow, up_arrow, no_arrow };
+    return { cards: this.tileList, down_arrow, up_arrow };
   },
   methods: {
     activeArea(position) {
