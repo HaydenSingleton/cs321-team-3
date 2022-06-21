@@ -46,6 +46,7 @@ const board = new Board(
   new Lane(
     new Tile(false, 1, 3, "deathtouch"),
     new Tile(false, 1, 2, "sharp"),
+    new Tile(),
     new Tile(false, 3, 1, "flying")
   ),
   new Lane(
@@ -62,17 +63,17 @@ const board = new Board(
 );
 
 const lanes = board.getLanes();
-
 const confetti = new JSConfetti();
 
 function win() {
   confetti.addConfetti();
+  lives.value = 3;
+  score.value = 0;
 }
 
 function checkWin() {
   score.value = board.check();
   lives.value = board.getLives();
-
   if (score.value >= 5) win();
 }
 </script>
