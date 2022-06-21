@@ -14,7 +14,16 @@
       </div>
       <div class="column">
         <div class="message is-info">
-          <div class="message-body is-dark">Lives: {{ lives }}</div>
+          <div class="message-body">Lives: {{ lives }}</div>
+          <div class="level">
+            <img
+              v-for="index in lives"
+              :key="index"
+              class="image is-64x64"
+              src="@/assets/heart.png"
+              alt="Heart"
+            />
+          </div>
         </div>
       </div>
     </div>
