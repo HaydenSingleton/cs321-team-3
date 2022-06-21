@@ -46,7 +46,7 @@ export class Lane {
         }
         break;
       default:
-        if (tile2.empty === false && tile2.sigil !== "submerge") {
+        if (tile2.isEmpty === false && tile2.sigil !== "submerge") {
           this.onHit(tile1, tile2);
         } else {
           directDamageTaken += tile1.attack;
