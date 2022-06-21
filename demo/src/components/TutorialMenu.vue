@@ -1,27 +1,12 @@
 <template>
-  <div class="tutorial">
-    <span style="display: inline-flex">
-      <p>{{ greeting }}</p>
-    </span>
-    <div>{{ image }}</div>
-  </div>
+  <section class="hero is-info is-fullheight-with-navbar">
+    <div class="hero-head">
+      <p class="title">How to Play</p>
+    </div>
+    <div class="hero-foot">
+      <p class="subtitle">Learn the basics of our game</p>
+    </div>
+  </section>
 </template>
 
-<script>
-export default {
-  props: { msg: { type: String, default: "" } },
-  setup(props) {
-    return { image: "<image>", greeting: props.msg };
-  },
-};
-</script>
-
-<style>
-.tutorial {
-  background: grey;
-  color: white;
-  margin: 10px 200px;
-  padding: 20px auto;
-  text-align: center;
-}
-</style>
+<script setup></script>
