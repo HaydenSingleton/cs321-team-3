@@ -1,13 +1,17 @@
 <template>
-  <div class="content">
+  <div>
     <div class="columns">
-      <div class="column">
-        <div id="score" class="button is-dark">{{ score }}/5</div>
-        <p></p>
-        <button v-if="lives > 0" class="button is-info" @click="checkWin">
-          Check
-        </button>
-        <button v-else disabled class="button is-dark">Check</button>
+      <div class="column is-1">
+        <div class="title">
+          <div id="score" class="button is-dark">
+            <span>{{ score }}/5</span>
+          </div>
+          <div class="content"></div>
+          <button v-if="lives > 0" class="button is-info" @click="checkWin">
+            Check
+          </button>
+          <button v-else disabled class="button is-dark">Check</button>
+        </div>
       </div>
       <div class="column">
         <div class="columns">
@@ -19,18 +23,22 @@
           />
         </div>
       </div>
-      <div class="column">
-        <div class="message">
+      <div class="column is-2">
+        <div class="message is-info">
           <div class="message-body">
-            <div class="is-info">Lives: {{ lives }}</div>
+            <div class="title">Lives: {{ lives }}</div>
           </div>
-          <img
-            v-for="index in lives"
-            :key="index"
-            class="image"
-            src="@/assets/heart.png"
-            alt="Heart"
-          />
+          <div class="content">
+            <figure>
+              <img
+                v-for="index in lives"
+                :key="index"
+                class="image"
+                src="@/assets/heart.png"
+                alt="Heart"
+              />
+            </figure>
+          </div>
         </div>
       </div>
     </div>
