@@ -25,7 +25,6 @@ export class Board {
   }
 
   check() {
-    console.log("Pressed Check button...");
     const initialBoard = this.lanes;
     let directDamageTaken = 0;
 
@@ -97,7 +96,7 @@ export class Board {
     if (directDamageTaken < 5) {
       this.loadBoard(initialBoard, this.lives - 1);
     }
-    console.log("lives", this.lives);
+
     return directDamageTaken;
   }
 }
