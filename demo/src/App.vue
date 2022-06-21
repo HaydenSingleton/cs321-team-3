@@ -1,7 +1,7 @@
 <template>
   <div class="section">
     <nav class="nav navbar">
-      <div class="container is-fluid">
+      <div class="container">
         <div id="navMenu" class="navbar-menu is-dark">
           <div class="navbar-start">
             <div class="navbar-item">
@@ -23,7 +23,11 @@
                   class="button is-dark"
                   >Github</a
                 >
-                <a class="button is-link">Inscryption</a>
+                <a
+                  class="button is-link"
+                  src="https://inscryption.fandom.com/wiki/Sigils"
+                  >Inscryption Wiki</a
+                >
               </div>
             </div>
           </div>
@@ -49,8 +53,16 @@ export default {
   color: #2c3e50;
 }
 
+body {
+  background: lightblue;
+}
+
 nav {
-  padding: 30px;
+  margin: 30px;
+}
+
+#navMenu {
+  background: slateblue;
 }
 
 nav a {

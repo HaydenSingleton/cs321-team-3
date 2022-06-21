@@ -1,13 +1,13 @@
 <template>
-  <div id="lane" class="is-ancestor">
+  <div id="lane" class="tile is-ancestor">
     <div class="tile is-parent is-vertical">
       <div
-        v-for="(tile, position) in tiles"
+        v-for="(card, position) in cards"
         :key="position"
-        class="tile is-child"
+        class="tile is-child is-vertical"
       >
         <button
-          v-if="position > 0 && !tile.isEmpty"
+          v-if="position > 0 && !card.isEmpty"
           class="tile button is-info"
           @click="moveUp(position)"
         >
@@ -16,29 +16,33 @@
         <button v-else disabled class="tile button is-info">
           {{ no_arrow }}
         </button>
-        <div v-if="!tile.isEmpty" class="tile box is-child sigil">
-          <div class="level">
-            <div class="level-left">Attack: {{ tile.attack }}</div>
-            <div class="level-right">Health: {{ tile.health }}</div>
+        <div v-if="!card.isEmpty" class="tile is-child">
+          <div id="sigil" class="tile is-child">
+            <span id="sigil-text" class="level-left">
+              Attack: {{ card.attack }}
+            </span>
+            <span id="sigil-text" class="level-right">
+              Health: {{ card.health }}
+            </span>
           </div>
-          <figure class="media-left">
+          <figure id="sigil" class="tile is-child">
             <img
               :src="
-                require('@/assets/abilities/ability_' + tile.sigil + '.png')
+                require('@/assets/abilities/ability_' + card.sigil + '.png')
               "
-              :alt="tile.sigil"
+              :alt="card.sigil"
             />
           </figure>
         </div>
-        <div v-else class="content"></div>
+        <div v-else class="tile is-child"></div>
         <button
-          v-if="position < 3 && !tile.isEmpty"
-          class="tile button is-info"
+          v-if="position < 3 && !card.isEmpty"
+          class="tile is-child button is-info"
           @click="moveDown(position)"
         >
           {{ down_arrow }}
         </button>
-        <button v-else disabled class="tile button is-info">
+        <button v-else disabled class="tile is-child button is-info">
           {{ no_arrow }}
         </button>
       </div>
@@ -56,21 +60,21 @@ export default {
     const down_arrow = ref("―――――――▼―――――――");
     const up_arrow = ref("―――――――▲―――――――");
     const no_arrow = ref("―――――――――――――――");
-    return { tiles: this.tileList, down_arrow, up_arrow, no_arrow };
+    return { cards: this.tileList, down_arrow, up_arrow, no_arrow };
   },
   methods: {
     moveUp(pos) {
-      let t = this.tiles[pos];
-      if (this.tiles[pos - 1].isEmpty === true) {
-        this.tiles[pos - 1].Assign(false, t.attack, t.health, t.sigil);
-        this.tiles[pos].reset();
+      let t = this.cards[pos];
+      if (this.cards[pos - 1].isEmpty === true) {
+        this.cards[pos - 1].Assign(false, t.attack, t.health, t.sigil);
+        this.cards[pos].reset();
       }
     },
     moveDown(pos) {
-      let t = this.tiles[pos];
-      if (this.tiles[pos + 1].isEmpty === true) {
-        this.tiles[pos + 1].Assign(false, t.attack, t.health, t.sigil);
-        this.tiles[pos].reset();
+      let t = this.cards[pos];
+      if (this.cards[pos + 1].isEmpty === true) {
+        this.cards[pos + 1].Assign(false, t.attack, t.health, t.sigil);
+        this.cards[pos].reset();
       }
     },
   },
@@ -78,12 +82,16 @@ export default {
 </script>
 
 <style scoped>
-#lane {
-  text-align: center;
-  margin: 10px;
+#sigil {
+  margin-bottom: 0 !important;
+  background: white;
 }
 
-.sigil {
-  background: hsl(200, 100%, 70%);
+#sigil-text {
+  padding: 1rem;
+}
+
+#sigil .tile.is-vertical > .tile.is-child:not(:last-child):not(:first-child) {
+  background: lightseagreen;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <section class="hero is-info is-fullheight-with-navbar">
+  <section class="hero is-info is-small">
     <div class="hero-head">
       <p class="title">How to Play</p>
     </div>

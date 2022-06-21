@@ -2,33 +2,35 @@
   <div class="content">
     <div class="columns">
       <div class="column">
-        <div>
-          <p id="score" class="box">{{ score }}/5</p>
-          <button v-if="lives > 0" class="button is-info" @click="checkWin">
-            Check
-          </button>
-          <button v-else disabled class="button is-dark">Check</button>
-        </div>
-      </div>
-      <div class="columns">
-        <LaneItem
-          v-for="(item, index) in lanes"
-          :key="index"
-          :tile-list="item.getTiles()"
-        ></LaneItem>
+        <div id="score" class="button is-dark">{{ score }}/5</div>
+        <p></p>
+        <button v-if="lives > 0" class="button is-info" @click="checkWin">
+          Check
+        </button>
+        <button v-else disabled class="button is-dark">Check</button>
       </div>
       <div class="column">
-        <div class="message is-info">
-          <div class="message-body">Lives: {{ lives }}</div>
-          <div class="level">
-            <img
-              v-for="index in lives"
-              :key="index"
-              class="image is-64x64"
-              src="@/assets/heart.png"
-              alt="Heart"
-            />
+        <div class="columns">
+          <LaneItem
+            v-for="(item, index) in lanes"
+            :key="index"
+            :tile-list="item.getTiles()"
+            class="column"
+          />
+        </div>
+      </div>
+      <div class="column">
+        <div class="message">
+          <div class="message-body">
+            <div class="is-info">Lives: {{ lives }}</div>
           </div>
+          <img
+            v-for="index in lives"
+            :key="index"
+            class="image"
+            src="@/assets/heart.png"
+            alt="Heart"
+          />
         </div>
       </div>
     </div>
