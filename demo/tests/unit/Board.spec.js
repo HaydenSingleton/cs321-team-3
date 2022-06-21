@@ -107,34 +107,92 @@ describe("Board Javascript", () => {
       expect(nt.check()).toBe(0);
     }),
     it("EffectsOfBuffNeighborsWithAnEmptyLane2", () => {
-        var nt = new Board(
-          new Lane(
-            new Tile(false, 1, 3, "buffneighbors"),
-            new Tile(false, 1, 3, "empty"),
-            new Tile(false, 1, 3, "empty"),
-            new Tile(false, 1, 3, "buffneighbors")
-          ),
-          new Lane(
-            new Tile(false, 1, 3, "buffneighbors"),
-            new Tile(false, 1, 3, "buffneighbors"),
-            new Tile(false, 1, 3, "buffneighbors"),
-            new Tile(false, 1, 3, "buffneighbors")
-          ),
-          new Lane(
-            new Tile(false, 1, 3, "buffneighbors"),
-            new Tile(),
-            new Tile(false, 1, 3, "buffneighbors"),
-            new Tile(false, 1, 3, "buffneighbors")
-          ),
-          new Lane(
-            new Tile(false, 1, 3, "buffneighbors"),
-            new Tile(false, 1, 3, "buffneighbors"),
-            new Tile(),
-            new Tile(false, 1, 3, "buffneighbors")
-          )
-        );
-        expect(nt.check()).toBe(2);
-      }),
+      var nt = new Board(
+        new Lane(
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(),
+          new Tile(false, 1, 3, "empty"),
+          new Tile(false, 1, 3, "buffneighbors")
+        ),
+        new Lane(
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(),
+          new Tile(false, 1, 3, "buffneighbors")
+        ),
+        new Lane(
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(),
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(false, 1, 3, "buffneighbors")
+        ),
+        new Lane(
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(),
+          new Tile(false, 1, 3, "buffneighbors")
+        )
+      );
+      expect(nt.check()).toBe(2);
+    }),
+    it("EffectsOfBuffNeighborsWithAnEmptyLane3", () => {
+      var nt = new Board(
+        new Lane(
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(false, 1, 3, "empty"),
+          new Tile(),
+          new Tile(false, 1, 3, "buffneighbors")
+        ),
+        new Lane(
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(),
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(false, 1, 3, "buffneighbors")
+        ),
+        new Lane(
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(false, 1, 3, "empty"),
+          new Tile(),
+          new Tile(false, 1, 3, "buffneighbors")
+        ),
+        new Lane(
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(),
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(false, 1, 3, "buffneighbors")
+        )
+      );
+      expect(nt.check()).toBe(2);
+    }),
+    it("EffectsOfBuffNeighborsWithAnEmptyLane4", () => {
+      var nt = new Board(
+        new Lane(
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(),
+          new Tile(false, 1, 3, "buffneighbors")
+        ),
+        new Lane(
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(),
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(false, 1, 3, "buffneighbors")
+        ),
+        new Lane(
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(false, 1, 3, "empty"),
+          new Tile(),
+          new Tile(false, 1, 3, "buffneighbors")
+        ),
+        new Lane(
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(),
+          new Tile(false, 1, 3, "buffneighbors"),
+          new Tile(false, 1, 3, "buffneighbors")
+        )
+      );
+      expect(nt.check()).toBe(2);
+    }),
     it("EffectsOfTriStrike", () => {
       var nt = new Board(
         new Lane(
@@ -165,42 +223,49 @@ describe("Board Javascript", () => {
       expect(nt.check()).toBe(0);
     }),
     it("EffectsOfSplitStrike", () => {
-        var nt = new Board(
-          new Lane(
-            new Tile(false, 1, 3, "splitstrike"),
-            new Tile(false, 1, 3, "splitstrike"),
-            new Tile(false, 1, 3, "splitstrike"),
-            new Tile(false, 1, 3, "splitstrike")
-          ),
-          new Lane(
-            new Tile(false, 1, 3, "splitstrike"),
-            new Tile(false, 1, 3, "splitstrike"),
-            new Tile(false, 1, 3, "splitstrike"),
-            new Tile(false, 1, 3, "splitstrike")
-          ),
-          new Lane(
-            new Tile(false, 1, 3, "splitstrike"),
-            new Tile(false, 1, 3, "splitstrike"),
-            new Tile(false, 1, 3, "splitstrike"),
-            new Tile(false, 1, 3, "splitstrike")
-          ),
-          new Lane(
-            new Tile(false, 1, 3, "splitstrike"),
-            new Tile(false, 1, 3, "splitstrike"),
-            new Tile(false, 1, 3, "splitstrike"),
-            new Tile(false, 1, 3, "splitstrike")
-          )
-        );
-        expect(nt.check()).toBe(0);
-      }),
-      it("Create DefaultBoard", () => {
-        var nt = new Board();
-        expect(nt.check()).toBe(0);
-        expect(nt.getLanes()).toBe(nt.lanes);
-      }),
-      it("Create DefaultBoard", () => {
-        var nt = new Board(new Lane(new Tile(false,7,1,"empty"),new Tile(),new Tile(false,7,1,"empty"),new Tile(false,7,1,"empty")));
-        expect(nt.check()).toBe(7);
-        expect(nt.getLanes()).toBe(nt.lanes);
-      });
+      var nt = new Board(
+        new Lane(
+          new Tile(false, 1, 3, "splitstrike"),
+          new Tile(false, 1, 3, "splitstrike"),
+          new Tile(false, 1, 3, "splitstrike"),
+          new Tile(false, 1, 3, "splitstrike")
+        ),
+        new Lane(
+          new Tile(false, 1, 3, "splitstrike"),
+          new Tile(false, 1, 3, "splitstrike"),
+          new Tile(false, 1, 3, "splitstrike"),
+          new Tile(false, 1, 3, "splitstrike")
+        ),
+        new Lane(
+          new Tile(false, 1, 3, "splitstrike"),
+          new Tile(false, 1, 3, "splitstrike"),
+          new Tile(false, 1, 3, "splitstrike"),
+          new Tile(false, 1, 3, "splitstrike")
+        ),
+        new Lane(
+          new Tile(false, 1, 3, "splitstrike"),
+          new Tile(false, 1, 3, "splitstrike"),
+          new Tile(false, 1, 3, "splitstrike"),
+          new Tile(false, 1, 3, "splitstrike")
+        )
+      );
+      expect(nt.check()).toBe(0);
+    }),
+    it("Create DefaultBoard", () => {
+      var nt = new Board();
+      expect(nt.check()).toBe(0);
+      expect(nt.getLanes()).toBe(nt.lanes);
+    }),
+    it("Create DefaultBoard", () => {
+      var nt = new Board(
+        new Lane(
+          new Tile(false, 7, 1, "empty"),
+          new Tile(),
+          new Tile(false, 7, 1, "empty"),
+          new Tile(false, 7, 1, "empty")
+        )
+      );
+      expect(nt.check()).toBe(7);
+      expect(nt.getLanes()).toBe(nt.lanes);
+    });
 });
