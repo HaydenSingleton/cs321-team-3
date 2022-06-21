@@ -24,7 +24,7 @@ export class Lane {
     /*if (this.tiles[2].empty === false) {
         this.hit(this.tiles[2], this.tiles[1]); // enemy attacks only if it survived player attack.
       }*/
-      return -1;
+    return -1;
   };
 
   hit = (tile1, tile2) => {
