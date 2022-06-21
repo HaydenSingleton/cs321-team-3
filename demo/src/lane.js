@@ -24,7 +24,7 @@ export class Lane {
     /*if (this.tiles[2].empty === false) {
         this.hit(this.tiles[2], this.tiles[1]); // enemy attacks only if it survived player attack.
       }*/
-      return -1;
+    return -1;
   };
 
   hit = (tile1, tile2) => {
@@ -46,7 +46,7 @@ export class Lane {
         }
         break;
       default:
-        if (tile2.empty === false && tile2.sigil !== "submerge") {
+        if (tile2.isEmpty === false && tile2.sigil !== "submerge") {
           this.onHit(tile1, tile2);
         } else {
           directDamageTaken += tile1.attack;
