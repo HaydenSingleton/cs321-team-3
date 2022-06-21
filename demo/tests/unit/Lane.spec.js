@@ -50,5 +50,41 @@ describe("Lane Javascript", () => {
         new Tile(false, 1, 1, "preventattack")
       );
       expect(nt.interact()).toBe(1);
-    });
+    }),
+    it("no sigils attack directly", () => {
+      var nt = new Lane(
+        new Tile(false, 1, 1, "empty"),
+        new Tile(true, 0, 0, "empty"),
+        new Tile(false, 1, 1, "empty"),
+        new Tile(false, 1, 1, "empty")
+      );
+      expect(nt.interact()).toBe(1);
+    }),
+    it("no sigils attacking something", () => {
+      var nt = new Lane(
+        new Tile(false, 1, 1, "empty"),
+        new Tile(false, 1, 1, "sharp"),
+        new Tile(false, 1, 1, "empty"),
+        new Tile(false, 1, 1, "empty")
+      );
+      expect(nt.interact()).toBe(0);
+    }),
+    it("enemyDEBUFF", () => {
+        var nt = new Lane(
+          new Tile(false, 1, 1, "empty"),
+          new Tile(false, 1, 1, "debuffenemy"),
+          new Tile(false, 1, 1, "empty"),
+          new Tile(false, 1, 1, "empty")
+        );
+        expect(nt.interact()).toBe(0);
+      }),
+    it("enemyPREVENTATTACK", () => {
+        var nt = new Lane(
+          new Tile(false, 1, 1, "empty"),
+          new Tile(false, 1, 1, "preventattack"),
+          new Tile(false, 1, 1, "empty"),
+          new Tile(false, 1, 1, "empty")
+        );
+        expect(nt.interact()).toBe(0);
+      });
 });
