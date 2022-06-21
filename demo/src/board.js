@@ -29,8 +29,17 @@ export class Board {
     let directDamageTaken = 0;
 
     for (let i = 0; i <= 1; i++) {
+      switch (this.lanes[0].tiles[2 - i].sigil) {
+        case "buffneighbors":
+          if (this.lanes[1].tiles[2 - i].isEmpty === false) {
+            this.lanes[1].tiles[2 - i].attack++;
+          }
+      }
       switch (this.lanes[1].tiles[2 - i].sigil) {
         case "buffneighbors":
+          if (this.lanes[0].tiles[2 - i].isEmpty === false) {
+            this.lanes[0].tiles[2 - i].attack++;
+          }
           if (this.lanes[2].tiles[2 - i].isEmpty === false) {
             this.lanes[2].tiles[2 - i].attack++;
           }
