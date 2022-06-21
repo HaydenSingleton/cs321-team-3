@@ -57,7 +57,7 @@ const board = new Board(
   new Lane(
     new Tile(),
     new Tile(false, 1, 1, "submerge"),
-    new Tile(false, 2, 1, "debuffenemy")
+    new Tile(false, 1, 1, "splitstrike")
   ),
   new Lane(new Tile(), new Tile(false, 1, 1, "buffneighbors"))
 );
