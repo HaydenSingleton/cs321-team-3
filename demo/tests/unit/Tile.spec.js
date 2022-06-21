@@ -1,4 +1,3 @@
-//import { mount } from "@vue/test-utils";
 import { Tile } from "@/tile.js";
 
 describe("Tile Javascript", () => {
@@ -18,7 +17,7 @@ describe("Tile Javascript", () => {
     expect(nt.sigil).toBe("empty");
   }),
   it("AssignTile", () => {
-    var nt = new Tile()
+    var nt = new Tile();
     nt.Assign(false, 1, 3, "deathtouch");
     expect(nt.isEmpty).toBe(false);
     expect(nt.attack).toBe(1);
