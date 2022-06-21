@@ -31,7 +31,7 @@ export class Board {
     for (let i = 0; i <= 1; i++) {
       switch (this.lanes[1].tiles[2 - i].sigil) {
         case "buffneighbors":
-          if (this.lanes[2].tiles[2 - i] === false) {
+          if (this.lanes[2].tiles[2 - i].isEmpty === false) {
             this.lanes[2].tiles[2 - i].attack++;
           }
       }
@@ -39,7 +39,8 @@ export class Board {
         case "buffneighbors":
           if (this.lanes[1].tiles[2 - i].isEmpty === false) {
             this.lanes[1].tiles[2 - i].attack++;
-          } else if (this.lanes[3].tiles[2 - i].isEmpty === false) {
+          }
+          if (this.lanes[3].tiles[2 - i].isEmpty === false) {
             this.lanes[3].tiles[2 - i].attack++;
           }
       }
@@ -47,8 +48,6 @@ export class Board {
         case "buffneighbors":
           if (this.lanes[2].tiles[2 - i].isEmpty === false) {
             this.lanes[2].tiles[2 - i].attack++;
-          } else if (this.lanes[4].tiles[2 - i].isEmpty === false) {
-            this.lanes[4].tiles[2 - i].attack++;
           }
       }
     }

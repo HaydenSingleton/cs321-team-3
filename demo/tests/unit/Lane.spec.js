@@ -70,21 +70,30 @@ describe("Lane Javascript", () => {
       expect(nt.interact()).toBe(0);
     }),
     it("enemyDEBUFF", () => {
-        var nt = new Lane(
-          new Tile(false, 1, 1, "empty"),
-          new Tile(false, 1, 1, "debuffenemy"),
-          new Tile(false, 1, 1, "empty"),
-          new Tile(false, 1, 1, "empty")
-        );
-        expect(nt.interact()).toBe(0);
-      }),
+      var nt = new Lane(
+        new Tile(false, 1, 1, "empty"),
+        new Tile(false, 1, 1, "debuffenemy"),
+        new Tile(false, 1, 1, "empty"),
+        new Tile(false, 1, 1, "empty")
+      );
+      expect(nt.interact()).toBe(0);
+    }),
+    it("getTiles", () => {
+      var nt = new Lane(
+        new Tile(false, 1, 1, "empty"),
+        new Tile(false, 1, 1, "debuffenemy"),
+        new Tile(false, 1, 1, "empty"),
+        new Tile(false, 1, 1, "empty")
+      );
+      expect(nt.getTiles()).toBe(nt.tiles);
+    }),
     it("enemyPREVENTATTACK", () => {
-        var nt = new Lane(
-          new Tile(false, 1, 1, "empty"),
-          new Tile(false, 1, 1, "preventattack"),
-          new Tile(false, 1, 1, "empty"),
-          new Tile(false, 1, 1, "empty")
-        );
-        expect(nt.interact()).toBe(0);
-      });
+      var nt = new Lane(
+        new Tile(false, 1, 1, "empty"),
+        new Tile(false, 1, 1, "preventattack"),
+        new Tile(false, 1, 1, "empty"),
+        new Tile(false, 1, 1, "empty")
+      );
+      expect(nt.interact()).toBe(0);
+    });
 });
