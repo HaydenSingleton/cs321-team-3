@@ -3,7 +3,8 @@
     <div class="columns">
       <div class="column">
         <p id="score" class="button">{{ score }}/5</p>
-        <button class="button" @click="checkWin">Check</button>
+        <button v-if="lives > 0" class="button" @click="checkWin">Check</button>
+        <button v-else disabled class="button">Check</button>
       </div>
       <div class="columns">
         <LaneItem
@@ -36,6 +37,7 @@ import LaneItem from "@/components/LaneItem.vue";
 import { Board } from "@/board.js";
 import { Lane } from "@/lane";
 import { Tile } from "@/tile";
+import JSConfetti from "js-confetti";
 
 const score = ref(0);
 const lives = ref(3);
@@ -44,6 +46,7 @@ const board = new Board(
   new Lane(
     new Tile(false, 1, 3, "deathtouch"),
     new Tile(false, 1, 2, "sharp"),
+    new Tile(),
     new Tile(false, 3, 1, "flying")
   ),
   new Lane(
@@ -60,9 +63,17 @@ const board = new Board(
 );
 
 const lanes = board.getLanes();
+const confetti = new JSConfetti();
+
+function win() {
+  confetti.addConfetti();
+  lives.value = 3;
+  score.value = 0;
+}
 
 function checkWin() {
   score.value = board.check();
   lives.value = board.getLives();
+  if (score.value >= 5) win();
 }
 </script>
