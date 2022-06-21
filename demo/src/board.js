@@ -1,5 +1,4 @@
 import { Lane } from "./lane.js";
-import { Tile } from "@/tile";
 
 export class Board {
   constructor(
@@ -20,12 +19,14 @@ export class Board {
     this.lanes = boardLanes;
     this.lives = lives;
   };
+
   getLives() {
     return this.lives;
   }
 
   check() {
-    const initialBoard = this.lanes;
+    let initialBoard = this.getLanes();
+
     let directDamageTaken = 0;
 
     for (let i = 0; i <= 1; i++) {
@@ -108,82 +109,3 @@ export class Board {
     return directDamageTaken;
   }
 }
-
-export const preGeneratedBoards = [
-  new Board(
-    new Lane(
-      new Tile(false, 1, 3, "tristrike"),
-      new Tile(false, 1, 3, "tristrike")
-    ),
-    new Lane(
-      new Tile(false, 1, 3, "tristrike"),
-      new Tile(false, 1, 3, "tristrike")
-    ),
-    new Lane(
-      new Tile(false, 1, 3, "tristrike"),
-      new Tile(false, 1, 3, "tristrike")
-    ),
-    new Lane(
-      new Tile(false, 1, 3, "tristrike"),
-      new Tile(false, 1, 3, "tristrike")
-    )
-  ),
-  new Board(
-    new Lane(
-      new Tile(false, 1, 3, "splitstrike"),
-      new Tile(false, 1, 3, "splitstrike")
-    ),
-    new Lane(
-      new Tile(false, 1, 3, "splitstrike"),
-      new Tile(false, 1, 3, "splitstrike")
-    ),
-    new Lane(
-      new Tile(false, 1, 3, "splitstrike"),
-      new Tile(false, 1, 3, "splitstrike")
-    ),
-    new Lane(
-      new Tile(false, 1, 3, "splitstrike"),
-      new Tile(false, 1, 3, "splitstrike")
-    )
-  ),
-  new Board(
-    new Lane(
-      new Tile(false, 1, 3, "buffneighbors"),
-      new Tile(false, 1, 3, "buffneighbors")
-    ),
-    new Lane(
-      new Tile(false, 1, 3, "buffneighbors"),
-      new Tile(false, 1, 3, "buffneighbors")
-    ),
-    new Lane(
-      new Tile(false, 1, 3, "buffneighbors"),
-      new Tile(false, 1, 3, "buffneighbors")
-    ),
-    new Lane(
-      new Tile(false, 1, 3, "buffneighbors"),
-      new Tile(false, 1, 3, "buffneighbors")
-    )
-  ),
-  new Board(
-    new Lane(
-      new Tile(false, 1, 3, "deathtouch"),
-      new Tile(false, 1, 3, "sharp"),
-      new Tile(false, 1, 3, "deathtouch")
-    ),
-    new Lane(
-      new Tile(false, 1, 3, "preventattack"),
-      new Tile(false, 1, 3, "sharp"),
-      new Tile(false, 1, 3, "splitstrike")
-    ),
-    new Lane(
-      new Tile(false, 1, 3, "flying"),
-      new Tile(false, 1, 3, "preventattack"),
-      new Tile(),
-      new Tile(false, 1, 3, "preventattack")
-    ),
-    new Lane(
-      new Tile(false, 1, 3, "buffneighbors"),
-      new Tile(false, 1, 3, "empty")
-    )
-  ),
-];
