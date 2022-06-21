@@ -2,10 +2,10 @@ import { Tile } from "@/tile.js";
 
 export class Lane {
   constructor(
-    t1 = new Tile(),
-    t2 = new Tile(),
-    t3 = new Tile(),
-    t4 = new Tile()
+    t1 = new Tile(true, 0, 0, "empty"),
+    t2 = new Tile(true, 0, 0, "empty"),
+    t3 = new Tile(true, 0, 0, "empty"),
+    t4 = new Tile(true, 0, 0, "empty")
   ) {
     this.tiles = [t1, t2, t3, t4];
   }
@@ -16,21 +16,22 @@ export class Lane {
 
   interact = () => {
     //Active Zone
-    if (this.tiles[2].empty === false) {
-      console.log("2", this.tiles[2].sigil);
-      console.log("1", this.tiles[1].sigil);
-      this.hit(this.tiles[2], this.tiles[1]); //player attacks first
+    if (this.tiles[2].isEmpty === false) {
+      //console.log("2", this.tiles[2].sigil);
+      //console.log("1", this.tiles[1].sigil);
+      return this.hit(this.tiles[2], this.tiles[1]); //player attacks first
     }
     /*if (this.tiles[2].empty === false) {
         this.hit(this.tiles[2], this.tiles[1]); // enemy attacks only if it survived player attack.
       }*/
+      return -1;
   };
 
   hit = (tile1, tile2) => {
     let directDamageTaken = 0;
     switch (tile1.sigil) {
       case "deathtouch":
-        if (tile2.empty === false) {
+        if (tile2.isEmpty === false) {
           this.onHit(tile1, tile2);
           tile2.reset();
         } else {
@@ -51,7 +52,7 @@ export class Lane {
           directDamageTaken += tile1.attack;
         }
     }
-    console.log("Lane", directDamageTaken);
+    //console.log("Lane", directDamageTaken);
     return directDamageTaken;
   };
 
