@@ -3,40 +3,42 @@
     <div class="tile is-parent is-vertical">
       <div
         v-for="(tile, position) in tiles"
-        :key="tile.sigil + position"
-        class="tile is-child is-primary"
+        :key="position"
+        class="tile is-child"
       >
         <button
           v-if="position > 0 && !tile.isEmpty"
-          class="tile button enabled"
+          class="tile button is-info"
           @click="moveUp(position)"
         >
           {{ up_arrow }}
         </button>
-        <button v-else disabled class="tile button disabled">
+        <button v-else disabled class="tile button is-info">
           {{ no_arrow }}
         </button>
-        <div
-          v-if="!tile.isEmpty"
-          class="tile box media-container is-child is-link"
-        >
-          <div class="tile is-vertical">
-            Attack: {{ tile.attack }} Health: {{ tile.health }}
+        <div v-if="!tile.isEmpty" class="tile box is-child sigil">
+          <div class="level">
+            <div class="level-left">Attack: {{ tile.attack }}</div>
+            <div class="level-right">Health: {{ tile.health }}</div>
           </div>
-          <img
-            class="media-left is-64by64"
-            :src="require('@/assets/abilities/ability_' + tile.sigil + '.png')"
-            :alt="tile.sigil"
-          />
+          <figure class="media-left">
+            <img
+              :src="
+                require('@/assets/abilities/ability_' + tile.sigil + '.png')
+              "
+              :alt="tile.sigil"
+            />
+          </figure>
         </div>
+        <div v-else class="content"></div>
         <button
           v-if="position < 3 && !tile.isEmpty"
-          class="tile button enabled"
+          class="tile button is-info"
           @click="moveDown(position)"
         >
           {{ down_arrow }}
         </button>
-        <button v-else disabled class="tile button disabled">
+        <button v-else disabled class="tile button is-info">
           {{ no_arrow }}
         </button>
       </div>
@@ -78,26 +80,10 @@ export default {
 <style scoped>
 #lane {
   text-align: center;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 10px;
 }
 
-.is-child {
-  margin: 1px;
-}
-
-.media-container {
-  text-align: center;
-  display: block;
-  background: lightgreen;
-}
-
-.button {
-  background: darkseagreen;
-}
-
-.disabled {
-  opacity: 50%;
-  background: lightgray;
+.sigil {
+  background: hsl(200, 100%, 70%);
 }
 </style>
