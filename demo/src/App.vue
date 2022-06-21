@@ -1,8 +1,34 @@
 <template>
-  <div>
-    <nav>
-      <router-link to="/game">Play</router-link> |
-      <router-link to="/about">Learn</router-link>
+  <div class="section">
+    <nav class="nav navbar">
+      <div class="container is-fluid">
+        <div id="navMenu" class="navbar-menu is-dark">
+          <div class="navbar-start">
+            <div class="navbar-item">
+              <router-link class="button is-primary" to="/game"
+                >Play</router-link
+              >
+            </div>
+            <div class="navbar-item">
+              <router-link class="button is-light" to="/about"
+                >Learn</router-link
+              >
+            </div>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a
+                  href="https://github.com/HaydenSingleton/cs321-team-3/"
+                  class="button is-dark"
+                  >Github</a
+                >
+                <a class="button is-link">Inscryption</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
     <router-view />
   </div>

@@ -2,9 +2,13 @@
   <div class="content">
     <div class="columns">
       <div class="column">
-        <p id="score" class="button">{{ score }}/5</p>
-        <button v-if="lives > 0" class="button" @click="checkWin">Check</button>
-        <button v-else disabled class="button">Check</button>
+        <div>
+          <p id="score" class="box">{{ score }}/5</p>
+          <button v-if="lives > 0" class="button is-info" @click="checkWin">
+            Check
+          </button>
+          <button v-else disabled class="button is-dark">Check</button>
+        </div>
       </div>
       <div class="columns">
         <LaneItem
