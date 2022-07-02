@@ -11,14 +11,14 @@ export class Board {
     this.lives = 3;
   }
 
-  getLanes = () => {
+  getLanes() {
     return this.lanes;
-  };
+  }
 
-  loadBoard = (boardLanes, lives) => {
+  loadBoard(boardLanes, lives) {
     this.lanes = boardLanes;
     this.lives = lives;
-  };
+  }
 
   getLives() {
     return this.lives;

@@ -10,11 +10,11 @@ export class Lane {
     this.tiles = [t1, t2, t3, t4];
   }
 
-  getTiles = function () {
+  getTiles() {
     return this.tiles;
-  };
+  }
 
-  interact = () => {
+  interact() {
     //Active Zone
     if (this.tiles[2].isEmpty === false) {
       //console.log("2", this.tiles[2].sigil);
@@ -25,9 +25,9 @@ export class Lane {
         this.hit(this.tiles[2], this.tiles[1]); // enemy attacks only if it survived player attack.
       }*/
     return -1;
-  };
+  }
 
-  hit = (tile1, tile2) => {
+  hit(tile1, tile2) {
     let directDamageTaken = 0;
     switch (tile1.sigil) {
       case "deathtouch":
@@ -54,9 +54,9 @@ export class Lane {
     }
     //console.log("Lane", directDamageTaken);
     return directDamageTaken;
-  };
+  }
 
-  onHit = function (tile1, tile2) {
+  onHit(tile1, tile2) {
     switch (tile2.sigil) {
       case "debuffenemy":
         tile2.health -= tile1.atk - 1;
@@ -73,5 +73,5 @@ export class Lane {
         tile2.health -= tile1.attack;
         tile2.death();
     }
-  };
+  }
 }
