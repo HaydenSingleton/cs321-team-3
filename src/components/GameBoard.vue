@@ -27,11 +27,11 @@
                 <img
                   :src="require('@/assets/abilities/' + card.sigill + '.png')"
                   :alt="card.sigill"
-                  class="image is-64x64"
+                  class="image is-32by32"
                 />
               </figure>
             </div>
-            <p v-if="card.sigill !== 'empty'" class="text">{{ card.sigill }}</p>
+            <p :class="hideIfEmpty(card)" class="text">{{ card.sigill }}</p>
           </div>
           <button
             class="button arrow"
@@ -72,7 +72,7 @@ function moveDownTile(i: number, j: number) {
 }
 
 function hideIfEmpty(card: Tile) {
-  if (card.isEmpty) return "is-hidden";
+  if (card.isEmpty) return "is-invisible";
   else return "";
 }
 </script>
@@ -84,7 +84,7 @@ function hideIfEmpty(card: Tile) {
 }
 
 #sigill-box:hover {
-  background: white;
+  background: whitesmoke;
   border: 1px solid black;
 }
 
@@ -94,8 +94,8 @@ function hideIfEmpty(card: Tile) {
 }
 
 .active {
-  background: white;
-  border: 1px solid blue;
+  background: whitesmoke;
+  border: 1px solid rgba(0, 0, 0, 0.25);
   opacity: 100%;
 }
 

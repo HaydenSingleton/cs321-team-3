@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <nav class="nav">
       <div class="navbar-menu">
         <div class="navbar-start">
@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style>
-#app {
+.app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -52,7 +52,7 @@ export default {
 }
 
 nav {
-  padding: 0 1rem;
+  padding: 0.5rem 0.5rem 1rem;
   background: slateblue;
   font-weight: bold;
 }

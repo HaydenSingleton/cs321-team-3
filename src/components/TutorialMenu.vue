@@ -1,10 +1,10 @@
 <template>
-  <section class="section hero is-info is-small">
-    <div class="hero-head">
-      <p class="title">How to Play</p>
-    </div>
-    <div class="hero-body">
-      <section class="section">
+  <div class="background">
+    <section class="section hero is-info">
+      <div class="hero-head">
+        <p class="title">How to Play</p>
+      </div>
+      <div class="hero-body">
         <div>
           <iframe
             width="720"
@@ -14,16 +14,21 @@
             allowfullscreen
           ></iframe>
         </div>
-      </section>
-    </div>
-    <div class="hero-foot">
-      <p class="subtitle">Learn the basics of our game from ExtraOrdiNora</p>
-    </div>
-  </section>
+      </div>
+      <div class="hero-foot">
+        <p class="subtitle">Learn the basics of our game from ExtraOrdiNora</p>
+      </div>
+    </section>
+  </div>
 </template>
 
 <style>
 iframe {
   border: none;
+}
+
+.background {
+  height: 100vh;
+  background: #3298dc;
 }
 </style>
