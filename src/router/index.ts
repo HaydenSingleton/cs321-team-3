@@ -1,16 +1,16 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import GameBoard from "@/components/GameBoard.vue";
+import GamePage from "@/components/GamePage.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
-    redirect: "about",
+    component: () => import("../components/TutorialMenu.vue"),
   },
   {
     path: "/game",
     name: "game",
-    component: GameBoard,
+    component: GamePage,
   },
   {
     path: "/about",

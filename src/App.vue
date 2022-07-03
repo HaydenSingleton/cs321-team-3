@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="section">
+  <div id="app">
     <nav class="nav">
       <div class="navbar-menu">
         <div class="navbar-start">
@@ -52,7 +52,7 @@ export default {
 }
 
 nav {
-  margin: 2rem;
+  padding: 0 1rem;
   background: slateblue;
   font-weight: bold;
 }

@@ -20,14 +20,12 @@
           class="button"
           :class="[activeArea(position) ? 'is-info' : 'is-dark']"
         ></button>
-        <div v-if="!card.isEmpty" id="sigil" class="tile is-child">
-          <div id="sigil-text" class="level-left">
-            Attack: {{ card.attack }}
-          </div>
-          <div id="sigil-text" class="level-right">
+        <div v-if="!card.isEmpty" id="card" class="tile is-child">
+          <div id="card-text" class="level-left">Attack: {{ card.attack }}</div>
+          <div id="card-text" class="level-right">
             Health: {{ card.health }}
           </div>
-          <figure id="sigil" class="media-container">
+          <figure id="card" class="media-container">
             <img
               :src="
                 require('@/assets/abilities/ability_' + card.sigil + '.png')
@@ -57,57 +55,16 @@
   </div>
 </template>
 
-<script>
-import { ref } from "vue";
-import { Lane } from "@/lane";
-
-export default {
-  props: { tileList: { type: Object, default: new Lane().getTiles() } },
-  data() {
-    const down_arrow = ref("―――――――▼―――――――");
-    const up_arrow = ref("―――――――▲―――――――");
-    return { cards: this.tileList, down_arrow, up_arrow };
-  },
-  methods: {
-    activeArea(position) {
-      return position > 0 && position < 3;
-    },
-    moveUp(pos) {
-      let t = this.cards[pos];
-      if (this.cards[pos - 1].isEmpty === true) {
-        this.cards[pos - 1].Assign(false, t.attack, t.health, t.sigil);
-        this.cards[pos].reset();
-      }
-    },
-    moveDown(pos) {
-      let t = this.cards[pos];
-      if (this.cards[pos + 1].isEmpty === true) {
-        this.cards[pos + 1].Assign(false, t.attack, t.health, t.sigil);
-        this.cards[pos].reset();
-      }
-    },
-  },
-};
-</script>
+<script lang="ts"></script>
 
 <style scoped>
-#sigil {
+#card {
   margin-bottom: 0 !important;
   background: white;
   font-weight: bold;
 }
 
-#sigil-text {
+#card-text {
   padding: 1rem;
-}
-
-.middle.section {
-  background: darkgray;
-  color: blue;
-}
-
-:not(.middle).section {
-  background: lightgray;
-  color: black;
 }
 </style>
