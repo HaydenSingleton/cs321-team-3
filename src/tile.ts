@@ -8,8 +8,8 @@ export default class Tile {
   sigill: string;
   readonly id: number;
 
-  constructor() {
-    this.isEmpty = true;
+  constructor(empty: boolean = true) {
+    this.isEmpty = empty;
     this.attack = 0;
     this.health = 0;
     this.sigill = "empty";
@@ -23,20 +23,14 @@ export default class Tile {
   }
 
   static fromValues(a: number, h: number, s: string): Tile {
-    const result = new Tile();
-    result.isEmpty = false;
-    result.attack = a;
-    result.health = h;
-    result.sigill = s;
+    const result = new Tile(false);
+    [result.attack, result.health, result.sigill] = [a, h, s];
     return result;
   }
 
   static fromList(values: [number, number, string]): Tile {
-    const result = new Tile();
-    result.isEmpty = false;
-    result.attack = values[0];
-    result.health = values[1];
-    result.sigill = values[2];
+    const result = new Tile(false);
+    [result.attack, result.health, result.sigill] = values;
     return result;
   }
 
