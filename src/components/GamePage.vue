@@ -3,18 +3,14 @@
     <div class="columns is-centered">
       <div class="column is-1">
         <div class="tile is-ancestor is-vertical">
-          <div class="tile is-parent">
-            <div class="tile is-child">
-              <progress
-                aria-busy="true"
-                class="progress is-blue"
-                :value="score"
-                max="6"
-              >
-                {{ score / 5 }}%
-              </progress>
-              <p class="box">{{ score }} / 5</p>
-            </div>
+          <div class="tile is-parent is-vertical">
+            <progress
+              aria-busy="true"
+              class="progress is-dark"
+              :value="score"
+              max="5"
+            />
+            <p class="button title tile is-child is-dark">{{ score }} / 5</p>
           </div>
           <div class="tile is-parent">
             <button
