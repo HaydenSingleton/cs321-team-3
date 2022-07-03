@@ -5,7 +5,7 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: () => import("../components/TutorialMenu.vue"),
+    redirect: "about",
   },
   {
     path: "/game",
