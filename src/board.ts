@@ -3,29 +3,24 @@ import Tile from "./tile";
 
 const exampleBoard: Tile[][] = [
   [
-    Tile.fromList([false, 1, 3, "death_touch"]),
-    Tile.fromList([false, 1, 2, "sharp"]),
-    Tile.fromList([false, 3, 1, "flying"]),
+    Tile.fromList([1, 3, "death_touch"]),
+    Tile.fromList([1, 2, "sharp"]),
+    Tile.fromList([3, 1, "flying"]),
     new Tile(),
   ],
   [
-    Tile.fromList([false, 1, 1, "prevent_attack"]),
-    Tile.fromList([false, 1, 1, "submerge"]),
-    Tile.fromList([false, 1, 1, "flying"]),
-    new Tile(),
-  ],
-  [
-    new Tile(),
-    Tile.fromValues(false, 1, 1, "submerge"),
-    Tile.fromValues(false, 1, 1, "split_strike"),
+    Tile.fromList([1, 1, "prevent_attack"]),
+    Tile.fromList([1, 1, "submerge"]),
+    Tile.fromList([1, 1, "flying"]),
     new Tile(),
   ],
   [
     new Tile(),
-    Tile.fromValues(false, 1, 1, "buff_neighbors"),
-    new Tile(),
+    Tile.fromValues(1, 1, "submerge"),
+    Tile.fromValues(1, 1, "split_strike"),
     new Tile(),
   ],
+  [new Tile(), Tile.fromValues(1, 1, "buff_neighbors"), new Tile(), new Tile()],
 ];
 
 export default class Board {
@@ -40,19 +35,19 @@ export default class Board {
   }
 
   moveUp(row: number, col: number): void {
-    if (this.items[col][row - 1].isEmpty)
-      [this.items[col][row], this.items[col][row - 1]] = [
-        this.items[col][row - 1],
-        this.items[col][row],
-      ];
+    const next = row - 1;
+    [this.items[col][row], this.items[col][next]] = [
+      this.items[col][next],
+      this.items[col][row],
+    ];
   }
 
   moveDown(row: number, col: number): void {
-    if (this.items[col][row + 1].isEmpty)
-      [this.items[col][row], this.items[col][row + 1]] = [
-        this.items[col][row + 1],
-        this.items[col][row],
-      ];
+    const next = row + 1;
+    [this.items[col][row], this.items[col][next]] = [
+      this.items[col][next],
+      this.items[col][row],
+    ];
   }
 
   checkBoard(): number {

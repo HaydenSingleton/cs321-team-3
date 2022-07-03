@@ -17,26 +17,26 @@ export default class Tile {
   }
 
   toString() {
-    return `[${this.id}] (${
-      this.isEmpty ? " " : this.attack + " " + this.health + " " + this.sigill
-    })`;
+    return `[id=${this.id} (${
+      this.isEmpty ? "" : this.attack + " " + this.health + " " + this.sigill
+    })]`;
   }
 
-  static fromValues(e: boolean, a: number, h: number, s: string): Tile {
+  static fromValues(a: number, h: number, s: string): Tile {
     const result = new Tile();
-    result.isEmpty = e;
+    result.isEmpty = false;
     result.attack = a;
     result.health = h;
     result.sigill = s;
     return result;
   }
 
-  static fromList(values: [boolean, number, number, string]): Tile {
+  static fromList(values: [number, number, string]): Tile {
     const result = new Tile();
-    result.isEmpty = values[0];
-    result.attack = values[1];
-    result.health = values[2];
-    result.sigill = values[3];
+    result.isEmpty = false;
+    result.attack = values[0];
+    result.health = values[1];
+    result.sigill = values[2];
     return result;
   }
 
