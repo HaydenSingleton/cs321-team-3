@@ -64,7 +64,7 @@ const props = defineProps({
 </script>
 
 <style>
-.button:hover {
+.button {
   @apply border-solid border-2 bg-sky-500 hover:bg-sky-600;
 }
 </style>
