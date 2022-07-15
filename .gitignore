@@ -4,4 +4,5 @@
 .vs
 
 demo/coverage
-demo/yarn.lock
+demo/node_modules
+demo/*.lock
