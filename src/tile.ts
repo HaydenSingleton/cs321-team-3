@@ -1,5 +1,5 @@
 // @filename: tile.ts
-let currentID: number = 0;
+let currentID = 0;
 
 export default class Tile {
   isEmpty: boolean;
@@ -8,7 +8,7 @@ export default class Tile {
   sigill: string;
   readonly id: number;
 
-  constructor(empty: boolean = true) {
+  constructor(empty = true) {
     this.isEmpty = empty;
     this.attack = 0;
     this.health = 0;
